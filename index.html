@@ -22,6 +22,8 @@
     </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <!-- Google Fonts Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -115,8 +117,8 @@
                     <div class="text-xs text-slate-400">PDF downloads & WhatsApp receipts</div>
                 </div>
                 <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-wallet"></i> Partial Payment</div>
-                    <div class="text-xs text-slate-400">Pay 20% advance or full</div>
+                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-wallet"></i> Razorpay Secure</div>
+                    <div class="text-xs text-slate-400">UPI, Cards & Net Banking</div>
                 </div>
             </div>
         </div>
@@ -344,7 +346,7 @@
                 </div>
 
                 <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-emerald-900/40 transition text-base flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-circle-check"></i> Confirm & Book Deep Travels Cab
+                    <i class="fa-solid fa-credit-card"></i> Pay Online & Confirm Booking (Razorpay)
                 </button>
             </form>
         </div>
@@ -400,7 +402,7 @@
                     <div class="flex text-amber-400 text-sm mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-300 text-sm italic mb-4">"Very smooth booking and instant WhatsApp confirmation slip. Took 5 Seater Dzire for Patnitop day trip. Will definitely book again for our Ladakh trip!"</p>
+                    <p class="text-slate-300 text-sm italic mb-4">"Very smooth online booking with Razorpay and instant WhatsApp confirmation slip. Took 5 Seater Dzire for Patnitop day trip!"</p>
                 </div>
                 <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
                     <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">PK</div>
@@ -763,40 +765,63 @@
             if(appliedCouponName === 'WELCOME500' && baseAmount >= 4000) discount = 500;
             let total = Math.max(0, baseAmount - discount);
             let paidNow = payMode === 'advance' ? Math.round(total * 0.20) : total;
-            let balanceDue = total - paidNow;
 
-            const bookingId = 'DT-' + Math.floor(1000 + Math.random() * 9000);
+            // Razorpay Checkout Integration
+            var options = {
+                "key": "rzp_test_YOUR_KEY_HERE", // Yahan apni Razorpay Test/Live Key ID daal sakte hain
+                "amount": paidNow * 100, // Amount in paise
+                "currency": "INR",
+                "name": "Deep Travels",
+                "description": `Cab Booking (${vehicleText})`,
+                "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=100&h=100&fit=crop",
+                "handler": function (response){
+                    const bookingId = 'DT-' + Math.floor(1000 + Math.random() * 9000);
+                    const balanceDue = total - paidNow;
 
-            const newBooking = {
-                bookingId,
-                name,
-                phone,
-                email,
-                vehicleText,
-                tripType,
-                days,
-                pickupDate,
-                pickupLoc,
-                payMode,
-                total,
-                paidNow,
-                balanceDue,
-                driverName: 'Not Assigned',
-                cabNumber: 'Pending',
-                status: 'Confirmed',
-                createdAt: new Date().toLocaleDateString()
+                    const newBooking = {
+                        bookingId,
+                        name,
+                        phone,
+                        email,
+                        vehicleText,
+                        tripType,
+                        days,
+                        pickupDate,
+                        pickupLoc,
+                        payMode,
+                        total,
+                        paidNow,
+                        balanceDue,
+                        driverName: 'Not Assigned',
+                        cabNumber: 'Pending',
+                        status: 'Confirmed & Paid',
+                        paymentId: response.razorpay_payment_id,
+                        createdAt: new Date().toLocaleDateString()
+                    };
+
+                    bookings.unshift(newBooking);
+                    localStorage.setItem('deep_travels_bookings', JSON.stringify(bookings));
+
+                    document.getElementById('searchBookingInput').value = bookingId;
+                    searchBooking();
+                    scrollToSection('tracker');
+
+                    if(confirm(`Payment Successful! Booking ID: ${bookingId}\n\nClick OK to send your booking details to Deep Travels WhatsApp.`)) {
+                        sendWhatsAppReceipt(bookingId);
+                    }
+                },
+                "prefill": {
+                    "name": name,
+                    "email": email,
+                    "contact": phone
+                },
+                "theme": {
+                    "color": "#059669"
+                }
             };
 
-            bookings.unshift(newBooking);
-            localStorage.setItem('deep_travels_bookings', JSON.stringify(bookings));
-
-            document.getElementById('searchBookingInput').value = bookingId;
-            searchBooking();
-            scrollToSection('tracker');
-
-            if(confirm(`Booking Confirmed! ID: ${bookingId}\n\nClick OK to send your Booking Slip on WhatsApp to Deep Travels right now.`)) {
-                sendWhatsAppReceipt(bookingId);
-            }
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
         }
 
         function searchBooking() {
@@ -830,7 +855,7 @@
                         <div><strong>Route / Trip:</strong> ${found.tripType.toUpperCase()} (${found.days} Days)</div>
                         <div><strong>Pickup Date:</strong> ${found.pickupDate}</div>
                         <div><strong>Pickup Location:</strong> ${found.pickupLoc}</div>
-                        <div><strong>Paid (${found.payMode === 'advance' ? '20% Advance' : '100% Full'}):</strong> <span class="text-emerald-400 font-bold">₹${found.paidNow.toLocaleString()}</span></div>
+                        <div><strong>Paid Online:</strong> <span class="text-emerald-400 font-bold">₹${found.paidNow.toLocaleString()}</span> ${found.paymentId ? `(Txn: ${found.paymentId})` : ''}</div>
                         <div><strong>Balance Due to Driver:</strong> <span class="text-amber-400 font-bold">₹${found.balanceDue.toLocaleString()}</span></div>
                         <div><strong>Assigned Driver:</strong> ${found.driverName}</div>
                         <div><strong>Assigned Cab No:</strong> ${found.cabNumber}</div>
@@ -905,7 +930,7 @@
                         </tr>
                     </table>
                     <div style="margin-bottom: 20px;">
-                        <div>Paid Online (${b.payMode === 'advance' ? '20% Advance' : '100% Full'}): <strong>₹${b.paidNow.toLocaleString()}</strong></div>
+                        <div>Paid Online (Razorpay): <strong>₹${b.paidNow.toLocaleString()}</strong> ${b.paymentId ? `(Txn ID: ${b.paymentId})` : ''}</div>
                         <div>Balance Due to Driver: <strong>₹${b.balanceDue.toLocaleString()}</strong></div>
                         <div>Assigned Cab / Driver: <strong>${b.cabNumber} / ${b.driverName}</strong></div>
                     </div>
@@ -921,7 +946,7 @@
         function sendWhatsAppReceipt(id) {
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
-            const rawMessage = `*DEEP TRAVELS - NEW BOOKING*\n\n` +
+            const rawMessage = `*DEEP TRAVELS - PAID BOOKING*\n\n` +
                                `Booking ID: *${b.bookingId}*\n` +
                                `Guest Name: ${b.name}\n` +
                                `Guest Phone: ${b.phone}\n` +
@@ -930,7 +955,7 @@
                                `Vehicle: ${b.vehicleText}\n` +
                                `Pickup: ${b.pickupLoc} on ${b.pickupDate}\n` +
                                `Total Fare: ₹${b.total.toLocaleString()}\n` +
-                               `Paid Online: ₹${b.paidNow.toLocaleString()}\n` +
+                               `Paid Online (Razorpay): ₹${b.paidNow.toLocaleString()}\n` +
                                `Balance Due: ₹${b.balanceDue.toLocaleString()}\n\n` +
                                `Please assign driver and cab.`;
 
@@ -942,7 +967,7 @@
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
             const subject = encodeURIComponent(`Deep Travels Booking Receipt - ${b.bookingId}`);
-            const body = encodeURIComponent(`Hello ${b.name},\n\nYour booking with Deep Travels is confirmed!\n\nBooking ID: ${b.bookingId}\nVehicle: ${b.vehicleText}\nPickup: ${b.pickupLoc} (${b.pickupDate})\nTotal Fare: ₹${b.total}\nPaid: ₹${b.paidNow}\nBalance Due: ₹${b.balanceDue}\n\nThank you,\nDeep Travels Team (gaggig687@gmail.com)`);
+            const body = encodeURIComponent(`Hello ${b.name},\n\nYour payment and booking with Deep Travels is confirmed!\n\nBooking ID: ${b.bookingId}\nVehicle: ${b.vehicleText}\nPickup: ${b.pickupLoc} (${b.pickupDate})\nTotal Fare: ₹${b.total}\nPaid Online: ₹${b.paidNow}\nBalance Due: ₹${b.balanceDue}\n\nThank you,\nDeep Travels Team (gaggig687@gmail.com)`);
             window.location.href = `mailto:${b.email}?subject=${subject}&body=${body}`;
         }
 
