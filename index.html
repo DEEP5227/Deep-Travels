@@ -34,7 +34,7 @@
     <!-- Top Notice Bar -->
     <div class="bg-emerald-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-md flex items-center justify-center gap-2">
         <i class="fa-solid fa-phone-volume animate-bounce"></i>
-        <span>24/7 Tourist Support & Cab Booking across Jammu, Srinagar, Ladakh & Himachal: <strong id="topSupportPhone">+91-XXXXXXXXXX</strong></span>
+        <span>24/7 Tourist Support & Cab Booking across Jammu, Srinagar, Ladakh & Himachal: <strong id="topSupportPhone">+91-9070065600</strong></span>
     </div>
 
     <!-- Navigation Header -->
@@ -464,7 +464,7 @@
                 </div>
             </div>
 
-            <!-- Fleet & Rate Manager (NEW!) -->
+            <!-- Fleet & Rate Manager -->
             <div class="bg-slate-950 p-6 rounded-2xl border border-emerald-500/30 mb-8">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                     <div>
@@ -475,12 +475,10 @@
                     </div>
                 </div>
 
-                <!-- Existing Vehicles List in Admin -->
                 <div id="adminFleetList" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <!-- Populated via JS -->
                 </div>
 
-                <!-- Add New Vehicle Form -->
                 <div class="pt-4 border-t border-slate-800">
                     <h4 class="text-sm font-bold text-emerald-400 mb-3">+ Add New Vehicle to Fleet</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
@@ -523,9 +521,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-slate-800">
                 <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
                     <h4 class="text-sm font-bold text-white mb-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> Agency WhatsApp Number</h4>
-                    <p class="text-xs text-slate-400 mb-3">Customer bookings will be sent directly to this WhatsApp number (include country code, e.g., 919876543210).</p>
+                    <p class="text-xs text-slate-400 mb-3">Customer bookings will be sent directly to this WhatsApp number.</p>
                     <div class="flex gap-2">
-                        <input type="text" id="agencyWhatsAppInput" placeholder="e.g. 919876543210" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white">
+                        <input type="text" id="agencyWhatsAppInput" placeholder="e.g. 919070065600" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white">
                         <button onclick="saveAgencyWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs">Save Number</button>
                     </div>
                 </div>
@@ -567,8 +565,8 @@
                 <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Contact & Office</h4>
                 <ul class="space-y-2 text-xs text-slate-400">
                     <li><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> Jammu Tawi / R.S. Pura, J&K, India</li>
-                    <li><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> <span id="footerPhone">+91-XXXXXXXXXX</span></li>
-                    <li><i class="fa-solid fa-envelope text-emerald-500 mr-2"></i> booking@deeptravels.com</li>
+                    <li><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> <span id="footerPhone">+91-9070065600</span></li>
+                    <li><i class="fa-solid fa-envelope text-emerald-500 mr-2"></i> gaggig687@gmail.com</li>
                     <li><i class="fa-solid fa-clock text-emerald-500 mr-2"></i> Open 24/7 (All Days)</li>
                 </ul>
             </div>
@@ -581,64 +579,29 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // Default Fleet Vehicles
         const defaultVehicles = [
-            {
-                id: 'v1',
-                category: 'Compact Sedan / Hatchback',
-                name: '5 Seater (Amaze, Dzire, Etios)',
-                desc: 'Best for couples, small families, and quick hill trips.',
-                rate: 3500,
-                popular: false,
-                features: ['AC Comfortable Seats', 'Experienced Driver Included', 'Toll & Parking Flexible']
-            },
-            {
-                id: 'v2',
-                category: 'SUV / MUV',
-                name: '7 Seater (Innova, Ertiga)',
-                desc: 'Spacious family vehicle for Srinagar & Ladakh trips.',
-                rate: 4500,
-                popular: true,
-                features: ['Ample Luggage Space', 'Mountain Expert Drivers', 'Heater & Charging Ports']
-            },
-            {
-                id: 'v3',
-                category: 'Tempo Traveller / Mini Van',
-                name: '11 / 13 Seater Traveller',
-                desc: 'Ideal for group tours, family functions & pilgrimages.',
-                rate: 5500,
-                popular: false,
-                features: ['Pushback Luxury Seats', 'Extra Carrier for Bags', 'Music System & LED']
-            },
-            {
-                id: 'v4',
-                category: 'Force Urbania & Large Coach',
-                name: '17 / 20 / 26 Seater Urbania',
-                desc: 'For large tourist groups, corporate & institutional tours.',
-                rate: 7000,
-                popular: false,
-                features: ['Premium Executive Legroom', 'Dedicated Tour Captain', 'AC & Safety Certified']
-            }
+            { id: 'v1', category: 'Compact Sedan / Hatchback', name: '5 Seater (Amaze, Dzire, Etios)', desc: 'Best for couples, small families, and quick hill trips.', rate: 3500, popular: false, features: ['AC Comfortable Seats', 'Experienced Driver Included', 'Toll & Parking Flexible'] },
+            { id: 'v2', category: 'SUV / MUV', name: '7 Seater (Innova, Ertiga)', desc: 'Spacious family vehicle for Srinagar & Ladakh trips.', rate: 4500, popular: true, features: ['Ample Luggage Space', 'Mountain Expert Drivers', 'Heater & Charging Ports'] },
+            { id: 'v3', category: 'Tempo Traveller / Mini Van', name: '11 / 13 Seater Traveller', desc: 'Ideal for group tours, family functions & pilgrimages.', rate: 5500, popular: false, features: ['Pushback Luxury Seats', 'Extra Carrier for Bags', 'Music System & LED'] },
+            { id: 'v4', category: 'Force Urbania & Large Coach', name: '17 / 20 / 26 Seater Urbania', desc: 'For large tourist groups, corporate & institutional tours.', rate: 7000, popular: false, features: ['Premium Executive Legroom', 'Dedicated Tour Captain', 'AC & Safety Certified'] }
         ];
 
-        // Load from localStorage
         let vehicles = JSON.parse(localStorage.getItem('deep_travels_vehicles')) || defaultVehicles;
         let bookings = JSON.parse(localStorage.getItem('deep_travels_bookings') || '[]');
         let adminPin = localStorage.getItem('deep_travels_pin') || '1234';
-        let agencyWhatsApp = localStorage.getItem('deep_travels_whatsapp') || '';
+        let agencyWhatsApp = localStorage.getItem('deep_travels_whatsapp') || '919070065600';
 
         let activeDiscount = 0;
         let appliedCouponName = '';
         let secretTapCount = 0;
 
-        // Initialize UI
         document.getElementById('pickupDate').valueAsDate = new Date();
         updatePhoneDisplays();
         renderFleetUI();
         calculateFare();
 
         function updatePhoneDisplays() {
-            const displayStr = agencyWhatsApp ? `+${agencyWhatsApp}` : '+91-XXXXXXXXXX';
+            const displayStr = agencyWhatsApp ? `+${agencyWhatsApp}` : '+91-9070065600';
             document.getElementById('topSupportPhone').innerText = displayStr;
             document.getElementById('footerPhone').innerText = displayStr;
             if(document.getElementById('agencyWhatsAppInput')) {
@@ -657,7 +620,6 @@
             select.innerHTML = '';
 
             vehicles.forEach((v, index) => {
-                // Render Fleet Card
                 const badgeHTML = v.popular ? `<div class="absolute -top-3 right-6 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Most Popular</div>` : '';
                 const borderClass = v.popular ? 'border-emerald-500/40 shadow-emerald-950/30 relative' : 'border-slate-800 hover:border-emerald-500/50';
                 const btnClass = v.popular ? 'bg-emerald-600 hover:bg-emerald-500' : 'bg-slate-800 hover:bg-emerald-600';
@@ -682,7 +644,6 @@
                     </div>
                 `;
 
-                // Populate Dropdown
                 const option = document.createElement('option');
                 option.value = v.id;
                 option.dataset.rate = v.rate;
@@ -833,10 +794,7 @@
             searchBooking();
             scrollToSection('tracker');
 
-            // Automatically prompt/trigger WhatsApp dispatch without popup block issues
-            if(confirm(`Booking Confirmed! ID: ${bookingId}
-
-Click OK to send your Booking Slip on WhatsApp right now.`)) {
+            if(confirm(`Booking Confirmed! ID: ${bookingId}\n\nClick OK to send your Booking Slip on WhatsApp to Deep Travels right now.`)) {
                 sendWhatsAppReceipt(bookingId);
             }
         }
@@ -917,7 +875,7 @@ Click OK to send your Booking Slip on WhatsApp right now.`)) {
                         <div>
                             <div class="logo">DEEP TRAVELS</div>
                             <div>Tour & Travels Agency (Jammu, Srinagar, Ladakh & Himachal)</div>
-                            <div>Contact: ${agencyWhatsApp ? '+' + agencyWhatsApp : '+91-XXXXXXXXXX'} | Email: booking@deeptravels.com</div>
+                            <div>Contact: +${agencyWhatsApp} | Email: gaggig687@gmail.com</div>
                         </div>
                         <div style="text-align: right;">
                             <h2>INVOICE / RECEIPT</h2>
@@ -960,67 +918,34 @@ Click OK to send your Booking Slip on WhatsApp right now.`)) {
             invoiceWindow.print();
         }
 
-        // Fixed Direct WhatsApp Trigger (Works on all mobile & desktop browsers without popup blocking)
         function sendWhatsAppReceipt(id) {
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
-            const rawMessage = `*DEEP TRAVELS - BOOKING SLIP*
-
-` +
-                               `Booking ID: *${b.bookingId}*
-` +
-                               `Guest Name: ${b.name}
-` +
-                               `Guest Phone: ${b.phone}
-` +
-                               `Route/Package: ${b.tripType.toUpperCase()} (${b.days} Days)
-` +
-                               `Vehicle: ${b.vehicleText}
-` +
-                               `Pickup: ${b.pickupLoc} on ${b.pickupDate}
-` +
-                               `Total Fare: ₹${b.total.toLocaleString()}
-` +
-                               `Paid Online: ₹${b.paidNow.toLocaleString()}
-` +
-                               `Balance Due: ₹${b.balanceDue.toLocaleString()}
-` +
-                               `Driver/Cab: ${b.driverName} (${b.cabNumber})
-
-` +
-                               `Thank you for choosing Deep Travels!`;
+            const rawMessage = `*DEEP TRAVELS - NEW BOOKING*\n\n` +
+                               `Booking ID: *${b.bookingId}*\n` +
+                               `Guest Name: ${b.name}\n` +
+                               `Guest Phone: ${b.phone}\n` +
+                               `Email: ${b.email}\n` +
+                               `Route/Package: ${b.tripType.toUpperCase()} (${b.days} Days)\n` +
+                               `Vehicle: ${b.vehicleText}\n` +
+                               `Pickup: ${b.pickupLoc} on ${b.pickupDate}\n` +
+                               `Total Fare: ₹${b.total.toLocaleString()}\n` +
+                               `Paid Online: ₹${b.paidNow.toLocaleString()}\n` +
+                               `Balance Due: ₹${b.balanceDue.toLocaleString()}\n\n` +
+                               `Please assign driver and cab.`;
 
             const encodedText = encodeURIComponent(rawMessage);
-            // If agency WhatsApp is configured, send directly to agency, otherwise open WhatsApp share
-            const targetPhone = agencyWhatsApp ? agencyWhatsApp.replace(/[^0-9]/g, '') : '';
-            const waUrl = targetPhone 
-                ? `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedText}`
-                : `https://api.whatsapp.com/send?text=${encodedText}`;
-
-            window.location.href = waUrl;
+            window.location.href = `https://api.whatsapp.com/send?phone=${agencyWhatsApp}&text=${encodedText}`;
         }
 
         function sendEmailReceipt(id) {
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
             const subject = encodeURIComponent(`Deep Travels Booking Receipt - ${b.bookingId}`);
-            const body = encodeURIComponent(`Hello ${b.name},
-
-Your booking with Deep Travels is confirmed!
-
-Booking ID: ${b.bookingId}
-Vehicle: ${b.vehicleText}
-Pickup: ${b.pickupLoc} (${b.pickupDate})
-Total Fare: ₹${b.total}
-Paid: ₹${b.paidNow}
-Balance Due: ₹${b.balanceDue}
-
-Thank you,
-Deep Travels Team`);
+            const body = encodeURIComponent(`Hello ${b.name},\n\nYour booking with Deep Travels is confirmed!\n\nBooking ID: ${b.bookingId}\nVehicle: ${b.vehicleText}\nPickup: ${b.pickupLoc} (${b.pickupDate})\nTotal Fare: ₹${b.total}\nPaid: ₹${b.paidNow}\nBalance Due: ₹${b.balanceDue}\n\nThank you,\nDeep Travels Team (gaggig687@gmail.com)`);
             window.location.href = `mailto:${b.email}?subject=${subject}&body=${body}`;
         }
 
-        // Secret Admin Trigger
         function triggerSecretAdmin() {
             secretTapCount++;
             if(secretTapCount >= 5) {
@@ -1045,7 +970,6 @@ Deep Travels Team`);
             document.getElementById('adminPanelModal').classList.add('hidden');
         }
 
-        // Admin Fleet Management Functions
         function renderAdminFleet() {
             const list = document.getElementById('adminFleetList');
             list.innerHTML = '';
@@ -1126,13 +1050,13 @@ Deep Travels Team`);
         function saveAgencyWhatsApp() {
             const num = document.getElementById('agencyWhatsAppInput').value.trim().replace(/[^0-9]/g, '');
             if(!num || num.length < 10) {
-                alert('Please enter a valid WhatsApp number with country code (e.g. 919876543210).');
+                alert('Please enter a valid WhatsApp number with country code (e.g. 919070065600).');
                 return;
             }
             agencyWhatsApp = num;
             localStorage.setItem('deep_travels_whatsapp', agencyWhatsApp);
             updatePhoneDisplays();
-            alert('Agency WhatsApp number saved! All customer bookings will now open directly in your WhatsApp chat.');
+            alert('Agency WhatsApp number saved!');
         }
 
         function loadAdminBookings() {
@@ -1208,20 +1132,10 @@ Deep Travels Team`);
             const b = bookings[idx];
             if(type === 'guest') {
                 const guestPhone = b.phone.replace(/[^0-9]/g, '');
-                const msg = encodeURIComponent(`*DEEP TRAVELS - BOOKING CONFIRMED*
-Booking ID: ${b.bookingId}
-Driver: ${b.driverName}
-Cab No: ${b.cabNumber}
-Pickup: ${b.pickupLoc} on ${b.pickupDate}
-Balance Due: ₹${b.balanceDue}`);
+                const msg = encodeURIComponent(`*DEEP TRAVELS - BOOKING CONFIRMED*\nBooking ID: ${b.bookingId}\nDriver: ${b.driverName}\nCab No: ${b.cabNumber}\nPickup: ${b.pickupLoc} on ${b.pickupDate}\nBalance Due: ₹${b.balanceDue}`);
                 window.location.href = `https://api.whatsapp.com/send?phone=${guestPhone}&text=${msg}`;
             } else {
-                const msg = encodeURIComponent(`*DRIVER DUTY SLIP - DEEP TRAVELS*
-Booking ID: ${b.bookingId}
-Guest: ${b.name} (${b.phone})
-Pickup: ${b.pickupLoc} on ${b.pickupDate}
-Route: ${b.tripType.toUpperCase()} (${b.days} Days)
-Collect Balance: ₹${b.balanceDue}`);
+                const msg = encodeURIComponent(`*DRIVER DUTY SLIP - DEEP TRAVELS*\nBooking ID: ${b.bookingId}\nGuest: ${b.name} (${b.phone})\nPickup: ${b.pickupLoc} on ${b.pickupDate}\nRoute: ${b.tripType.toUpperCase()} (${b.days} Days)\nCollect Balance: ₹${b.balanceDue}`);
                 window.location.href = `https://api.whatsapp.com/send?text=${msg}`;
             }
         }
@@ -1229,10 +1143,7 @@ Collect Balance: ₹${b.balanceDue}`);
         function adminSendReminder(idx) {
             const b = bookings[idx];
             const guestPhone = b.phone.replace(/[^0-9]/g, '');
-            const msg = encodeURIComponent(`*TRIP REMINDER - DEEP TRAVELS*
-Hello ${b.name}, your trip (${b.bookingId}) is scheduled for tomorrow (${b.pickupDate}) from ${b.pickupLoc}.
-Driver: ${b.driverName} (${b.cabNumber}).
-Have a safe journey!`);
+            const msg = encodeURIComponent(`*TRIP REMINDER - DEEP TRAVELS*\nHello ${b.name}, your trip (${b.bookingId}) is scheduled for tomorrow (${b.pickupDate}) from ${b.pickupLoc}.\nDriver: ${b.driverName} (${b.cabNumber}).\nHave a safe journey!`);
             window.location.href = `https://api.whatsapp.com/send?phone=${guestPhone}&text=${msg}`;
         }
 
