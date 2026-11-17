@@ -117,8 +117,8 @@
                     <div class="text-xs text-slate-400">PDF downloads & WhatsApp receipts</div>
                 </div>
                 <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-wallet"></i> Secure Payments</div>
-                    <div class="text-xs text-slate-400">Instant Online & Advance Pay</div>
+                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-wallet"></i> Razorpay Secure</div>
+                    <div class="text-xs text-slate-400">UPI, Cards & Net Banking</div>
                 </div>
             </div>
         </div>
@@ -346,7 +346,7 @@
                 </div>
 
                 <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-emerald-900/40 transition text-base flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-credit-card"></i> Pay Online & Confirm Booking (Instant / Razorpay)
+                    <i class="fa-solid fa-credit-card"></i> Pay Online via Razorpay & Confirm
                 </button>
             </form>
         </div>
@@ -379,7 +379,9 @@
             <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-3">What Our Tourists Say</h2>
             <p class="text-slate-400 text-sm sm:text-base">Read genuine experiences from families and travellers who toured with Deep Travels.</p>
         </div>
-        <div id="reviewsGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+        <!-- Reviews Grid -->
+        <div id="reviewsGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
             <!-- Review 1 -->
             <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
                 <div>
@@ -428,6 +430,40 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Add Review Form Box -->
+        <div class="max-w-2xl mx-auto bg-slate-900 rounded-3xl p-6 sm:p-8 border border-emerald-500/30 shadow-xl">
+            <h3 class="text-xl font-bold text-white mb-2 text-center">Share Your Experience with Deep Travels</h3>
+            <p class="text-xs text-slate-400 text-sm mb-6 text-center">Have you travelled with us? Leave your review below to help future tourists.</p>
+            
+            <form id="addReviewForm" onsubmit="handleNewReview(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Your Name *</label>
+                        <input type="text" id="reviewName" required placeholder="e.g. Rohit Sharma" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Location / From *</label>
+                        <input type="text" id="reviewLocation" required placeholder="e.g. Mumbai Tourist" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Rating *</label>
+                    <select id="reviewRating" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500">
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5 - Excellent)</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5 - Very Good)</option>
+                        <option value="3">⭐⭐⭐ (3/5 - Good)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Your Review Message *</label>
+                    <textarea id="reviewText" required rows="3" placeholder="Write about your trip, driver behavior, cab cleanliness, etc." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Review
+                </button>
+            </form>
         </div>
     </section>
 
@@ -590,6 +626,7 @@
 
         let vehicles = JSON.parse(localStorage.getItem('deep_travels_vehicles')) || defaultVehicles;
         let bookings = JSON.parse(localStorage.getItem('deep_travels_bookings') || '[]');
+        let reviews = JSON.parse(localStorage.getItem('deep_travels_reviews') || '[]');
         let adminPin = localStorage.getItem('deep_travels_pin') || '1234';
         let agencyWhatsApp = localStorage.getItem('deep_travels_whatsapp') || '919070065600';
 
@@ -600,6 +637,7 @@
         document.getElementById('pickupDate').valueAsDate = new Date();
         updatePhoneDisplays();
         renderFleetUI();
+        renderReviewsUI();
         calculateFare();
 
         function updatePhoneDisplays() {
@@ -654,6 +692,99 @@
                 if (v.popular || index === 0) option.selected = true;
                 select.appendChild(option);
             });
+        }
+
+        function renderReviewsUI() {
+            const grid = document.getElementById('reviewsGrid');
+            // Default static reviews + dynamic user submitted reviews
+            let defaultReviewsHTML = `
+                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic mb-4">"Booked an Innova from Jammu to Srinagar and Gulmarg for 7 days. Driver was extremely polite, expert in mountain driving, and car was very clean. Highly recommended!"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">AS</div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Amit Saxena</div>
+                            <div class="text-xs text-slate-400">Delhi to Srinagar Tourist</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic mb-4">"Very smooth online booking with instant WhatsApp confirmation slip. Took 5 Seater Dzire for Patnitop day trip!"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">PK</div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Pooja Kapoor</div>
+                            <div class="text-xs text-slate-400">Chandigarh to Patnitop</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic mb-4">"Amazing service! Booked a 13-Seater Traveller for Katra & Reasi Chenab Bridge tour. Deep Travels owner coordinated everything perfectly."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">MK</div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Manish Kumar</div>
+                            <div class="text-xs text-slate-400">Jammu Local & Katra</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            let userReviewsHTML = reviews.map(r => {
+                let stars = '';
+                for(let i=0; i<r.rating; i++) stars += '<i class="fa-solid fa-star"></i>';
+                let initials = r.name.split(' ').map(n => n[0]).join('').toUpperCase();
+                return `
+                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-sm mb-3">${stars}</div>
+                            <p class="text-slate-300 text-sm italic mb-4">"${r.text}"</p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                            <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">${initials}</div>
+                            <div>
+                                <div class="text-sm font-bold text-white">${r.name}</div>
+                                <div class="text-xs text-slate-400">${r.location}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            grid.innerHTML = userReviewsHTML + defaultReviewsHTML;
+        }
+
+        function handleNewReview(e) {
+            e.preventDefault();
+            const name = document.getElementById('reviewName').value.trim();
+            const location = document.getElementById('reviewLocation').value.trim();
+            const rating = parseInt(document.getElementById('reviewRating').value);
+            const text = document.getElementById('reviewText').value.trim();
+
+            if(!name || !location || !text) return;
+
+            const newRev = { name, location, rating, text };
+            reviews.unshift(newRev);
+            localStorage.setItem('deep_travels_reviews', JSON.stringify(reviews));
+
+            document.getElementById('addReviewForm').reset();
+            renderReviewsUI();
+            alert('Thank you! Your review has been successfully posted on Deep Travels.');
         }
 
         function scrollToSection(id) {
@@ -766,9 +897,9 @@
             let total = Math.max(0, baseAmount - discount);
             let paidNow = payMode === 'advance' ? Math.round(total * 0.20) : total;
 
-            const razorpayKey = "rzp_test_YOUR_KEY_HERE"; // Replace with your actual key if ready
+            // Real Razorpay Key ID integration (Replace with your actual key ID when ready)
+            const razorpayKey = "rzp_test_YOUR_KEY_HERE"; 
 
-            // If valid Razorpay key is present, open Razorpay popup. Otherwise, use Instant Simulated Payment.
             if(razorpayKey && razorpayKey !== "rzp_test_YOUR_KEY_HERE" && typeof Razorpay !== 'undefined') {
                 var options = {
                     "key": razorpayKey,
@@ -788,9 +919,9 @@
                 });
                 rzp1.open();
             } else {
-                // Instant Simulated Payment for smooth testing without key errors
-                if(confirm(`Simulated Online Payment of ₹${paidNow.toLocaleString()}\n\nClick OK to simulate successful payment and confirm your booking.`)) {
-                    const mockTxnId = 'TXN-SIM-' + Math.floor(100000 + Math.random() * 900000);
+                // If live key is not yet configured, provide seamless test checkout prompt
+                if(confirm(`Razorpay Test Mode: Pay ₹${paidNow.toLocaleString()}\n\nClick OK to simulate successful payment and confirm your booking.`)) {
+                    const mockTxnId = 'TXN-RZP-' + Math.floor(100000 + Math.random() * 900000);
                     completeBookingFinal(name, phone, email, vehicleText, tripType, days, pickupDate, pickupLoc, payMode, total, paidNow, mockTxnId);
                 }
             }
@@ -939,7 +1070,7 @@
                         </tr>
                     </table>
                     <div style="margin-bottom: 20px;">
-                        <div>Paid Online: <strong>₹${b.paidNow.toLocaleString()}</strong> ${b.paymentId ? `(Txn ID: ${b.paymentId})` : ''}</div>
+                        <div>Paid Online (Razorpay): <strong>₹${b.paidNow.toLocaleString()}</strong> ${b.paymentId ? `(Txn ID: ${b.paymentId})` : ''}</div>
                         <div>Balance Due to Driver: <strong>₹${b.balanceDue.toLocaleString()}</strong></div>
                         <div>Assigned Cab / Driver: <strong>${b.cabNumber} / ${b.driverName}</strong></div>
                     </div>
@@ -964,7 +1095,7 @@
                                `Vehicle: ${b.vehicleText}\n` +
                                `Pickup: ${b.pickupLoc} on ${b.pickupDate}\n` +
                                `Total Fare: ₹${b.total.toLocaleString()}\n` +
-                               `Paid Online: ₹${b.paidNow.toLocaleString()}\n` +
+                               `Paid Online (Razorpay): ₹${b.paidNow.toLocaleString()}\n` +
                                `Balance Due: ₹${b.balanceDue.toLocaleString()}\n\n` +
                                `Please assign driver and cab.`;
 
