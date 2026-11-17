@@ -34,7 +34,7 @@
     <!-- Top Notice Bar -->
     <div class="bg-emerald-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-md flex items-center justify-center gap-2">
         <i class="fa-solid fa-phone-volume animate-bounce"></i>
-        <span>24/7 Tourist Support & Cab Booking across Jammu, Srinagar, Ladakh & Himachal: <strong>+91-XXXXXXXXXX</strong></span>
+        <span>24/7 Tourist Support & Cab Booking across Jammu, Srinagar, Ladakh & Himachal: <strong id="topSupportPhone">+91-XXXXXXXXXX</strong></span>
     </div>
 
     <!-- Navigation Header -->
@@ -122,77 +122,14 @@
         </div>
     </section>
 
-    <!-- Fleet Tariff Card Section -->
+    <!-- Dynamic Fleet Tariff Card Section -->
     <section id="fleet" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-3">Our Well-Maintained Fleet & Tariff Rates</h2>
             <p class="text-slate-400 text-sm sm:text-base">Transparent per-day rental rates with verified drivers for local and long-distance tours.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- 5 Seater -->
-            <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition">
-                <div>
-                    <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/20">Compact Sedan / Hatchback</span>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">5 Seater (Amaze, Dzire, Etios)</h3>
-                    <p class="text-xs text-slate-400 mb-6">Best for couples, small families, and quick hill trips.</p>
-                    <div class="text-3xl font-extrabold text-emerald-400 mb-4">₹3,500 <span class="text-xs text-slate-400 font-normal">/ day</span></div>
-                    <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> AC Comfortable Seats</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Experienced Driver Included</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Toll & Parking Extra (or Inclusive)</li>
-                    </ul>
-                </div>
-                <button onclick="selectVehicle('5 Seater (Amaze/Dzire)', 3500)" class="w-full bg-slate-800 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition text-sm">Select 5 Seater</button>
-            </div>
-
-            <!-- 7 Seater -->
-            <div class="bg-slate-900 rounded-3xl p-6 border border-emerald-500/40 shadow-xl shadow-emerald-950/30 flex flex-col justify-between relative">
-                <div class="absolute -top-3 right-6 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Most Popular</div>
-                <div>
-                    <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/20">SUV / MUV</span>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">7 Seater (Innova, Ertiga)</h3>
-                    <p class="text-xs text-slate-400 mb-6">Spacious family vehicle for Srinagar & Ladakh trips.</p>
-                    <div class="text-3xl font-extrabold text-emerald-400 mb-4">₹4,500 <span class="text-xs text-slate-400 font-normal">/ day</span></div>
-                    <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Ample Luggage Space</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Mountain Expert Drivers</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Heater & Charging Ports</li>
-                    </ul>
-                </div>
-                <button onclick="selectVehicle('7 Seater (Innova/Ertiga)', 4500)" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl transition text-sm">Select 7 Seater</button>
-            </div>
-
-            <!-- 11/13 Seater -->
-            <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition">
-                <div>
-                    <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/20">Tempo Traveller / Mini Van</span>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">11 / 13 Seater Traveller</h3>
-                    <p class="text-xs text-slate-400 mb-6">Ideal for group tours, family functions & pilgrimages.</p>
-                    <div class="text-3xl font-extrabold text-emerald-400 mb-4">₹5,500 <span class="text-xs text-slate-400 font-normal">/ day</span></div>
-                    <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Pushback Luxury Seats</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Extra Carrier for Bags</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Music System & LED</li>
-                    </ul>
-                </div>
-                <button onclick="selectVehicle('11/13 Seater Traveller', 5500)" class="w-full bg-slate-800 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition text-sm">Select 11/13 Seater</button>
-            </div>
-
-            <!-- 17/20/26 Seater -->
-            <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition">
-                <div>
-                    <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/20">Force Urbania & Large Coach</span>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">17 / 20 / 26 Seater Urbania</h3>
-                    <p class="text-xs text-slate-400 mb-6">For large tourist groups, corporate & institutional tours.</p>
-                    <div class="text-3xl font-extrabold text-emerald-400 mb-4">₹7,000 <span class="text-xs text-slate-400 font-normal">/ day</span></div>
-                    <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Premium Executive Legroom</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Dedicated Tour Captain</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> AC & Safety Certified</li>
-                    </ul>
-                </div>
-                <button onclick="selectVehicle('17/20/26 Seater Urbania/Traveller', 7000)" class="w-full bg-slate-800 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition text-sm">Select Large Coach</button>
-            </div>
+        <div id="fleetCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dynamically rendered from Fleet Data -->
         </div>
     </section>
 
@@ -213,7 +150,7 @@
                     <h3 class="text-lg font-bold text-white mb-2">Jammu to Patnitop Sightseeing</h3>
                     <p class="text-xs text-slate-400 mb-4">Pine forests, Sanasar lake, meadows, and breathtaking mountain peaks.</p>
                 </div>
-                <button onclick="selectPackage('Jammu to Patnitop Day Trip', 3500, 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
+                <button onclick="selectPackage('patnitop', 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
             </div>
 
             <!-- Package 2 -->
@@ -226,7 +163,7 @@
                     <h3 class="text-lg font-bold text-white mb-2">Reasi, Salal Dam & Chenab Bridge</h3>
                     <p class="text-xs text-slate-400 mb-4">World's highest railway arch bridge sightseeing, Salal dam, and historical Reasi.</p>
                 </div>
-                <button onclick="selectPackage('Jammu to Reasi & Chenab Bridge', 4000, 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
+                <button onclick="selectPackage('reasi', 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
             </div>
 
             <!-- Package 3 -->
@@ -239,7 +176,7 @@
                     <h3 class="text-lg font-bold text-white mb-2">Jammu to Mansar & Surinsar Lakes</h3>
                     <p class="text-xs text-slate-400 mb-4">Twin holy lakes surrounded by forest-covered hills and tortoise sanctuary.</p>
                 </div>
-                <button onclick="selectPackage('Jammu to Mansar-Surinsar Lakes', 3200, 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
+                <button onclick="selectPackage('mansar', 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
             </div>
 
             <!-- Package 4 -->
@@ -252,7 +189,7 @@
                     <h3 class="text-lg font-bold text-white mb-2">Jammu to Amritsar & Wagah Border</h3>
                     <p class="text-xs text-slate-400 mb-4">Golden Temple, Jallianwala Bagh, and patriotic Wagah Border ceremony.</p>
                 </div>
-                <button onclick="selectPackage('Jammu to Amritsar & Wagah Border', 7500, 2)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
+                <button onclick="selectPackage('amritsar', 2)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
             </div>
 
             <!-- Package 5 -->
@@ -265,7 +202,7 @@
                     <h3 class="text-lg font-bold text-white mb-2">Jammu ➔ Srinagar ➔ Gulmarg ➔ Pahalgam</h3>
                     <p class="text-xs text-slate-400 mb-4">Complete Kashmir valley tour with Mughal gardens, snow peaks & houseboat stay.</p>
                 </div>
-                <button onclick="selectPackage('Jammu to Srinagar 7-Day Valley Tour', 24500, 7)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
+                <button onclick="selectPackage('srinagar', 7)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
             </div>
 
             <!-- Package 6 -->
@@ -278,7 +215,7 @@
                     <h3 class="text-lg font-bold text-white mb-2">Jammu ➔ Srinagar ➔ Leh Ladakh Tour</h3>
                     <p class="text-xs text-slate-400 mb-4">Zojila Pass, Kargil, Leh, Nubra Valley, Pangong Tso lake & Khardung La top.</p>
                 </div>
-                <button onclick="selectPackage('Jammu to Leh Ladakh 9-Day Expedition', 42000, 9)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
+                <button onclick="selectPackage('ladakh', 9)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
             </div>
         </div>
     </section>
@@ -314,14 +251,11 @@
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Email Address (for PDF Invoice) *</label>
                         <input type="email" id="custEmail" required placeholder="e.g. rahul@gmail.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
                     </div>
-                    <!-- Vehicle Type -->
+                    <!-- Vehicle Type (Dynamically Populated) -->
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Select Vehicle *</label>
                         <select id="vehicleSelect" onchange="calculateFare()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
-                            <option value="3500">5 Seater (Amaze, Dzire) - ₹3,500/day</option>
-                            <option value="4500" selected>7 Seater (Innova, Ertiga) - ₹4,500/day</option>
-                            <option value="5500">11/13 Seater Traveller - ₹5,500/day</option>
-                            <option value="7000">17/20/26 Seater Urbania - ₹7,000/day</option>
+                            <!-- Dynamically populated -->
                         </select>
                     </div>
                 </div>
@@ -330,20 +264,20 @@
                     <!-- Trip Type / Route -->
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Trip / Package Type *</label>
-                        <select id="tripType" onchange="calculateFare()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
+                        <select id="tripType" onchange="onTripTypeChange()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
                             <option value="custom">Custom Rental (Per Day)</option>
-                            <option value="patnitop">Jammu to Patnitop (1 Day - ₹3,500)</option>
-                            <option value="reasi">Jammu to Reasi & Chenab Bridge (1 Day - ₹4,000)</option>
-                            <option value="mansar">Jammu to Mansar-Surinsar (1 Day - ₹3,200)</option>
-                            <option value="amritsar">Jammu to Amritsar & Wagah (2 Days - ₹7,500)</option>
-                            <option value="srinagar">Jammu to Srinagar 7-Day Tour (7 Days - ₹24,500)</option>
-                            <option value="ladakh">Jammu to Leh Ladakh Expedition (9 Days - ₹42,000)</option>
+                            <option value="patnitop">Jammu to Patnitop (1 Day)</option>
+                            <option value="reasi">Jammu to Reasi & Chenab Bridge (1 Day)</option>
+                            <option value="mansar">Jammu to Mansar-Surinsar (1 Day)</option>
+                            <option value="amritsar">Jammu to Amritsar & Wagah (2 Days)</option>
+                            <option value="srinagar">Jammu to Srinagar 7-Day Tour (7 Days)</option>
+                            <option value="ladakh">Jammu to Leh Ladakh Expedition (9 Days)</option>
                         </select>
                     </div>
                     <!-- Number of Days -->
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Number of Days *</label>
-                        <input type="number" id="numDays" min="1" max="30" value="1" onchange="calculateFare()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
+                        <input type="number" id="numDays" min="1" max="30" value="1" oninput="calculateFare()" onchange="calculateFare()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
                     </div>
                     <!-- Pickup Date -->
                     <div>
@@ -496,7 +430,7 @@
     </section>
 
     <!-- Hidden Admin Panel Modal / Section -->
-    <div id="adminPanelModal" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md overflow-y-auto p-4 sm:p-6">
+    <div id="adminPanelModal" class="hidden fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md overflow-y-auto p-4 sm:p-6">
         <div class="max-w-6xl mx-auto bg-slate-900 rounded-3xl border border-emerald-500/40 p-6 sm:p-8 shadow-2xl relative">
             <button onclick="closeAdminPanel()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-10 h-10 rounded-full flex items-center justify-center">&times;</button>
             
@@ -506,12 +440,12 @@
                 </div>
                 <div>
                     <h2 class="text-2xl font-extrabold text-white">Deep Travels Owner Dashboard</h2>
-                    <p class="text-xs text-emerald-400">Manage bookings, driver assignments, WhatsApp dispatches & fleet rates</p>
+                    <p class="text-xs text-emerald-400">Manage bookings, vehicles & rates, driver assignments, and WhatsApp dispatches</p>
                 </div>
             </div>
 
             <!-- Admin KPIs -->
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
                 <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
                     <div class="text-xs text-slate-400 mb-1">Total Bookings</div>
                     <div id="adminTotalBookings" class="text-2xl font-extrabold text-white">0</div>
@@ -527,6 +461,36 @@
                 <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
                     <div class="text-xs text-slate-400 mb-1">Balance to Collect</div>
                     <div id="adminBalanceColl" class="text-2xl font-extrabold text-amber-400">₹0</div>
+                </div>
+            </div>
+
+            <!-- Fleet & Rate Manager (NEW!) -->
+            <div class="bg-slate-950 p-6 rounded-2xl border border-emerald-500/30 mb-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-car-rear text-emerald-400"></i> Manage Fleet Vehicles & Per-Day Rates
+                        </h3>
+                        <p class="text-xs text-slate-400">Edit existing vehicle rates or add a new vehicle directly from here—changes apply immediately!</p>
+                    </div>
+                </div>
+
+                <!-- Existing Vehicles List in Admin -->
+                <div id="adminFleetList" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- Add New Vehicle Form -->
+                <div class="pt-4 border-t border-slate-800">
+                    <h4 class="text-sm font-bold text-emerald-400 mb-3">+ Add New Vehicle to Fleet</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                        <input type="text" id="newVehCategory" placeholder="Category (e.g. Luxury SUV)" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                        <input type="text" id="newVehName" placeholder="Vehicle Name (e.g. Toyota Fortuner)" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                        <input type="number" id="newVehRate" placeholder="Rate/Day in ₹ (e.g. 8500)" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                        <button onclick="addNewVehicle()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-plus"></i> Add Vehicle
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -555,23 +519,20 @@
                 </div>
             </div>
 
-            <!-- Admin Settings & Fleet Rate Modifier -->
+            <!-- Admin Settings & WhatsApp Number -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-slate-800">
                 <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
-                    <h4 class="text-sm font-bold text-white mb-4"><i class="fa-solid fa-tags text-emerald-400"></i> Active Promo Coupons</h4>
-                    <ul class="space-y-2 text-xs text-slate-300 mb-4">
-                        <li><strong>DEEP10</strong>: 10% Flat Discount on all bookings</li>
-                        <li><strong>WELCOME500</strong>: Flat ₹500 off on bookings above ₹4,000</li>
-                    </ul>
+                    <h4 class="text-sm font-bold text-white mb-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> Agency WhatsApp Number</h4>
+                    <p class="text-xs text-slate-400 mb-3">Customer bookings will be sent directly to this WhatsApp number (include country code, e.g., 919876543210).</p>
                     <div class="flex gap-2">
-                        <input type="text" id="newCouponName" placeholder="New Coupon (e.g. SUMMER15)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white">
-                        <button onclick="alert('New coupon added successfully!')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs">Add</button>
+                        <input type="text" id="agencyWhatsAppInput" placeholder="e.g. 919876543210" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white">
+                        <button onclick="saveAgencyWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs">Save Number</button>
                     </div>
                 </div>
 
                 <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
-                    <h4 class="text-sm font-bold text-white mb-4"><i class="fa-solid fa-lock text-emerald-400"></i> Admin PIN & Security</h4>
-                    <p class="text-xs text-slate-400 mb-4">Current Admin PIN: <strong class="text-white">1234</strong> (Tap footer logo 5 times anytime to open this panel).</p>
+                    <h4 class="text-sm font-bold text-white mb-2"><i class="fa-solid fa-lock text-emerald-400"></i> Admin PIN & Security</h4>
+                    <p class="text-xs text-slate-400 mb-3">Current Admin PIN: <strong id="currentPinDisplay" class="text-white">1234</strong> (Tap footer logo 5 times anytime to open this panel).</p>
                     <button onclick="promptChangePin()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs border border-slate-700">Change Admin PIN</button>
                 </div>
             </div>
@@ -606,7 +567,7 @@
                 <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Contact & Office</h4>
                 <ul class="space-y-2 text-xs text-slate-400">
                     <li><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> Jammu Tawi / R.S. Pura, J&K, India</li>
-                    <li><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> +91-XXXXXXXXXX</li>
+                    <li><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> <span id="footerPhone">+91-XXXXXXXXXX</span></li>
                     <li><i class="fa-solid fa-envelope text-emerald-500 mr-2"></i> booking@deeptravels.com</li>
                     <li><i class="fa-solid fa-clock text-emerald-500 mr-2"></i> Open 24/7 (All Days)</li>
                 </ul>
@@ -620,14 +581,117 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // Local state storage for bookings
+        // Default Fleet Vehicles
+        const defaultVehicles = [
+            {
+                id: 'v1',
+                category: 'Compact Sedan / Hatchback',
+                name: '5 Seater (Amaze, Dzire, Etios)',
+                desc: 'Best for couples, small families, and quick hill trips.',
+                rate: 3500,
+                popular: false,
+                features: ['AC Comfortable Seats', 'Experienced Driver Included', 'Toll & Parking Flexible']
+            },
+            {
+                id: 'v2',
+                category: 'SUV / MUV',
+                name: '7 Seater (Innova, Ertiga)',
+                desc: 'Spacious family vehicle for Srinagar & Ladakh trips.',
+                rate: 4500,
+                popular: true,
+                features: ['Ample Luggage Space', 'Mountain Expert Drivers', 'Heater & Charging Ports']
+            },
+            {
+                id: 'v3',
+                category: 'Tempo Traveller / Mini Van',
+                name: '11 / 13 Seater Traveller',
+                desc: 'Ideal for group tours, family functions & pilgrimages.',
+                rate: 5500,
+                popular: false,
+                features: ['Pushback Luxury Seats', 'Extra Carrier for Bags', 'Music System & LED']
+            },
+            {
+                id: 'v4',
+                category: 'Force Urbania & Large Coach',
+                name: '17 / 20 / 26 Seater Urbania',
+                desc: 'For large tourist groups, corporate & institutional tours.',
+                rate: 7000,
+                popular: false,
+                features: ['Premium Executive Legroom', 'Dedicated Tour Captain', 'AC & Safety Certified']
+            }
+        ];
+
+        // Load from localStorage
+        let vehicles = JSON.parse(localStorage.getItem('deep_travels_vehicles')) || defaultVehicles;
         let bookings = JSON.parse(localStorage.getItem('deep_travels_bookings') || '[]');
+        let adminPin = localStorage.getItem('deep_travels_pin') || '1234';
+        let agencyWhatsApp = localStorage.getItem('deep_travels_whatsapp') || '';
+
         let activeDiscount = 0;
         let appliedCouponName = '';
         let secretTapCount = 0;
 
-        // Set default pickup date to today
+        // Initialize UI
         document.getElementById('pickupDate').valueAsDate = new Date();
+        updatePhoneDisplays();
+        renderFleetUI();
+        calculateFare();
+
+        function updatePhoneDisplays() {
+            const displayStr = agencyWhatsApp ? `+${agencyWhatsApp}` : '+91-XXXXXXXXXX';
+            document.getElementById('topSupportPhone').innerText = displayStr;
+            document.getElementById('footerPhone').innerText = displayStr;
+            if(document.getElementById('agencyWhatsAppInput')) {
+                document.getElementById('agencyWhatsAppInput').value = agencyWhatsApp;
+            }
+            if(document.getElementById('currentPinDisplay')) {
+                document.getElementById('currentPinDisplay').innerText = adminPin;
+            }
+        }
+
+        function renderFleetUI() {
+            const container = document.getElementById('fleetCardsContainer');
+            const select = document.getElementById('vehicleSelect');
+            
+            container.innerHTML = '';
+            select.innerHTML = '';
+
+            vehicles.forEach((v, index) => {
+                // Render Fleet Card
+                const badgeHTML = v.popular ? `<div class="absolute -top-3 right-6 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Most Popular</div>` : '';
+                const borderClass = v.popular ? 'border-emerald-500/40 shadow-emerald-950/30 relative' : 'border-slate-800 hover:border-emerald-500/50';
+                const btnClass = v.popular ? 'bg-emerald-600 hover:bg-emerald-500' : 'bg-slate-800 hover:bg-emerald-600';
+                
+                const featuresHTML = (v.features || ['Experienced Driver', 'Clean & Sanitized', '24/7 Support']).map(f => 
+                    `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> ${f}</li>`
+                ).join('');
+
+                container.innerHTML += `
+                    <div class="bg-slate-900 rounded-3xl p-6 border ${borderClass} shadow-xl flex flex-col justify-between transition">
+                        ${badgeHTML}
+                        <div>
+                            <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/20">${v.category}</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">${v.name}</h3>
+                            <p class="text-xs text-slate-400 mb-6">${v.desc || 'Comfortable & reliable vehicle for J&K and Ladakh tours.'}</p>
+                            <div class="text-3xl font-extrabold text-emerald-400 mb-4">₹${Number(v.rate).toLocaleString()} <span class="text-xs text-slate-400 font-normal">/ day</span></div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+                                ${featuresHTML}
+                            </ul>
+                        </div>
+                        <button onclick="selectVehicleById('${v.id}')" class="w-full ${btnClass} text-white font-semibold py-3 rounded-xl transition text-sm">Select Vehicle</button>
+                    </div>
+                `;
+
+                // Populate Dropdown
+                const option = document.createElement('option');
+                option.value = v.id;
+                option.dataset.rate = v.rate;
+                option.dataset.name = v.name;
+                option.text = `${v.name} - ₹${Number(v.rate).toLocaleString()}/day`;
+                if (v.popular || index === 0) option.selected = true;
+                select.appendChild(option);
+            });
+        }
 
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
@@ -638,45 +702,40 @@
             menu.classList.toggle('hidden');
         }
 
-        function selectVehicle(name, rate) {
+        function selectVehicleById(vehId) {
             const select = document.getElementById('vehicleSelect');
-            for(let i=0; i<select.options.length; i++) {
-                if(select.options[i].value == rate) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
+            select.value = vehId;
             document.getElementById('tripType').value = 'custom';
             document.getElementById('numDays').value = 1;
             calculateFare();
             scrollToSection('estimator');
         }
 
-        function selectPackage(packageName, packagePrice, days) {
-            document.getElementById('tripType').value = packageName.toLowerCase().includes('patnitop') ? 'patnitop' :
-                                                      packageName.toLowerCase().includes('reasi') ? 'reasi' :
-                                                      packageName.toLowerCase().includes('mansar') ? 'mansar' :
-                                                      packageName.toLowerCase().includes('amritsar') ? 'amritsar' :
-                                                      packageName.toLowerCase().includes('srinagar') ? 'srinagar' : 'ladakh';
+        function selectPackage(tripCode, days) {
+            document.getElementById('tripType').value = tripCode;
             document.getElementById('numDays').value = days;
-            document.getElementById('vehicleSelect').value = '4500'; // Default Innova for packages
             calculateFare();
             scrollToSection('estimator');
         }
 
-        function calculateFare() {
-            const vehicleRate = parseInt(document.getElementById('vehicleSelect').value);
+        function onTripTypeChange() {
             const tripType = document.getElementById('tripType').value;
-            let days = parseInt(document.getElementById('numDays').value) || 1;
-            
-            let baseAmount = vehicleRate * days;
+            const daysInput = document.getElementById('numDays');
+            if (tripType === 'patnitop' || tripType === 'reasi' || tripType === 'mansar') daysInput.value = 1;
+            if (tripType === 'amritsar') daysInput.value = 2;
+            if (tripType === 'srinagar') daysInput.value = 7;
+            if (tripType === 'ladakh') daysInput.value = 9;
+            calculateFare();
+        }
 
-            if (tripType === 'patnitop') baseAmount = vehicleRate * 1;
-            if (tripType === 'reasi') baseAmount = vehicleRate * 1;
-            if (tripType === 'mansar') baseAmount = vehicleRate * 1;
-            if (tripType === 'amritsar') baseAmount = vehicleRate * 2;
-            if (tripType === 'srinagar') baseAmount = vehicleRate * 7;
-            if (tripType === 'ladakh') baseAmount = vehicleRate * 9;
+        function calculateFare() {
+            const select = document.getElementById('vehicleSelect');
+            const selectedOption = select.options[select.selectedIndex];
+            const vehicleRate = selectedOption ? parseInt(selectedOption.dataset.rate) : 4500;
+            let days = parseInt(document.getElementById('numDays').value) || 1;
+            if (days < 1) days = 1;
+
+            let baseAmount = vehicleRate * days;
 
             let discount = (baseAmount * activeDiscount) / 100;
             if(appliedCouponName === 'WELCOME500' && baseAmount >= 4000) {
@@ -699,7 +758,6 @@
             document.getElementById('payableNowText').innerText = '₹' + payableNow.toLocaleString();
         }
 
-        // Listen to payMode radio change
         document.querySelectorAll('input[name="payMode"]').forEach(radio => {
             radio.addEventListener('change', calculateFare);
         });
@@ -727,22 +785,19 @@
             const name = document.getElementById('custName').value;
             const phone = document.getElementById('custPhone').value;
             const email = document.getElementById('custEmail').value;
-            const vehicleText = document.getElementById('vehicleSelect').options[document.getElementById('vehicleSelect').selectedIndex].text;
+            
+            const select = document.getElementById('vehicleSelect');
+            const selectedOption = select.options[select.selectedIndex];
+            const vehicleText = selectedOption.dataset.name;
+            const vehicleRate = parseInt(selectedOption.dataset.rate);
+
             const tripType = document.getElementById('tripType').value;
-            const days = document.getElementById('numDays').value;
+            const days = parseInt(document.getElementById('numDays').value) || 1;
             const pickupDate = document.getElementById('pickupDate').value;
             const pickupLoc = document.getElementById('pickupLoc').value;
             const payMode = document.querySelector('input[name="payMode"]:checked').value;
 
-            const vehicleRate = parseInt(document.getElementById('vehicleSelect').value);
             let baseAmount = vehicleRate * days;
-            if (tripType === 'patnitop') baseAmount = vehicleRate * 1;
-            if (tripType === 'reasi') baseAmount = vehicleRate * 1;
-            if (tripType === 'mansar') baseAmount = vehicleRate * 1;
-            if (tripType === 'amritsar') baseAmount = vehicleRate * 2;
-            if (tripType === 'srinagar') baseAmount = vehicleRate * 7;
-            if (tripType === 'ladakh') baseAmount = vehicleRate * 9;
-
             let discount = (baseAmount * activeDiscount) / 100;
             if(appliedCouponName === 'WELCOME500' && baseAmount >= 4000) discount = 500;
             let total = Math.max(0, baseAmount - discount);
@@ -774,10 +829,16 @@
             bookings.unshift(newBooking);
             localStorage.setItem('deep_travels_bookings', JSON.stringify(bookings));
 
-            alert('Booking Successful! Your Booking ID is ' + bookingId);
             document.getElementById('searchBookingInput').value = bookingId;
             searchBooking();
             scrollToSection('tracker');
+
+            // Automatically prompt/trigger WhatsApp dispatch without popup block issues
+            if(confirm(`Booking Confirmed! ID: ${bookingId}
+
+Click OK to send your Booking Slip on WhatsApp right now.`)) {
+                sendWhatsAppReceipt(bookingId);
+            }
         }
 
         function searchBooking() {
@@ -856,7 +917,7 @@
                         <div>
                             <div class="logo">DEEP TRAVELS</div>
                             <div>Tour & Travels Agency (Jammu, Srinagar, Ladakh & Himachal)</div>
-                            <div>Contact: +91-XXXXXXXXXX | Email: booking@deeptravels.com</div>
+                            <div>Contact: ${agencyWhatsApp ? '+' + agencyWhatsApp : '+91-XXXXXXXXXX'} | Email: booking@deeptravels.com</div>
                         </div>
                         <div style="text-align: right;">
                             <h2>INVOICE / RECEIPT</h2>
@@ -899,17 +960,64 @@
             invoiceWindow.print();
         }
 
+        // Fixed Direct WhatsApp Trigger (Works on all mobile & desktop browsers without popup blocking)
         function sendWhatsAppReceipt(id) {
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
-            const text = `*DEEP TRAVELS - BOOKING CONFIRMATION*%0A%0ABooking ID: ${b.bookingId}%0AName: ${b.name}%0ARoute: ${b.tripType.toUpperCase()}%0AVehicle: ${b.vehicleText}%0APickup: ${b.pickupLoc} (${b.pickupDate})%0ATotal Fare: ₹${b.total}%0APaid: ₹${b.paidNow}%0ABalance Due: ₹${b.balanceDue}%0ADriver: ${b.driverName} (${b.cabNumber})%0A%0AThank you for traveling with Deep Travels!`;
-            window.open(`https://wa.me/?text=${text}`, '_blank');
+            const rawMessage = `*DEEP TRAVELS - BOOKING SLIP*
+
+` +
+                               `Booking ID: *${b.bookingId}*
+` +
+                               `Guest Name: ${b.name}
+` +
+                               `Guest Phone: ${b.phone}
+` +
+                               `Route/Package: ${b.tripType.toUpperCase()} (${b.days} Days)
+` +
+                               `Vehicle: ${b.vehicleText}
+` +
+                               `Pickup: ${b.pickupLoc} on ${b.pickupDate}
+` +
+                               `Total Fare: ₹${b.total.toLocaleString()}
+` +
+                               `Paid Online: ₹${b.paidNow.toLocaleString()}
+` +
+                               `Balance Due: ₹${b.balanceDue.toLocaleString()}
+` +
+                               `Driver/Cab: ${b.driverName} (${b.cabNumber})
+
+` +
+                               `Thank you for choosing Deep Travels!`;
+
+            const encodedText = encodeURIComponent(rawMessage);
+            // If agency WhatsApp is configured, send directly to agency, otherwise open WhatsApp share
+            const targetPhone = agencyWhatsApp ? agencyWhatsApp.replace(/[^0-9]/g, '') : '';
+            const waUrl = targetPhone 
+                ? `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedText}`
+                : `https://api.whatsapp.com/send?text=${encodedText}`;
+
+            window.location.href = waUrl;
         }
 
         function sendEmailReceipt(id) {
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
-            alert(`Official PDF invoice dispatched successfully to registered email: ${b.email}`);
+            const subject = encodeURIComponent(`Deep Travels Booking Receipt - ${b.bookingId}`);
+            const body = encodeURIComponent(`Hello ${b.name},
+
+Your booking with Deep Travels is confirmed!
+
+Booking ID: ${b.bookingId}
+Vehicle: ${b.vehicleText}
+Pickup: ${b.pickupLoc} (${b.pickupDate})
+Total Fare: ₹${b.total}
+Paid: ₹${b.paidNow}
+Balance Due: ₹${b.balanceDue}
+
+Thank you,
+Deep Travels Team`);
+            window.location.href = `mailto:${b.email}?subject=${subject}&body=${body}`;
         }
 
         // Secret Admin Trigger
@@ -917,8 +1025,8 @@
             secretTapCount++;
             if(secretTapCount >= 5) {
                 secretTapCount = 0;
-                const pin = prompt('Enter Admin PIN (Default: 1234):');
-                if(pin === '1234') {
+                const pin = prompt(`Enter Admin PIN (Current: ${adminPin}):`);
+                if(pin === adminPin) {
                     openAdminPanel();
                 } else if(pin !== null) {
                     alert('Incorrect PIN!');
@@ -928,11 +1036,103 @@
 
         function openAdminPanel() {
             document.getElementById('adminPanelModal').classList.remove('hidden');
+            renderAdminFleet();
             loadAdminBookings();
+            updatePhoneDisplays();
         }
 
         function closeAdminPanel() {
             document.getElementById('adminPanelModal').classList.add('hidden');
+        }
+
+        // Admin Fleet Management Functions
+        function renderAdminFleet() {
+            const list = document.getElementById('adminFleetList');
+            list.innerHTML = '';
+            vehicles.forEach((v, idx) => {
+                list.innerHTML += `
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div class="flex-1 w-full">
+                            <div class="text-[10px] uppercase tracking-wider text-emerald-400 font-bold">${v.category}</div>
+                            <input type="text" id="edit_vname_${idx}" value="${v.name}" class="bg-slate-950 border border-slate-800 rounded px-2 py-1 text-sm font-bold text-white w-full mt-1">
+                        </div>
+                        <div class="flex items-center gap-2 w-full sm:w-auto">
+                            <span class="text-xs text-slate-400">₹</span>
+                            <input type="number" id="edit_vrate_${idx}" value="${v.rate}" class="bg-slate-950 border border-slate-800 rounded px-2 py-1 text-sm font-bold text-emerald-400 w-24">
+                            <button onclick="updateVehicle(${idx})" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold">Save</button>
+                            ${vehicles.length > 1 ? `<button onclick="deleteVehicle(${idx})" class="bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white px-2.5 py-1.5 rounded-lg text-xs" title="Remove Vehicle"><i class="fa-solid fa-trash"></i></button>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function updateVehicle(idx) {
+            const newName = document.getElementById(`edit_vname_${idx}`).value.trim();
+            const newRate = parseInt(document.getElementById(`edit_vrate_${idx}`).value);
+            if(!newName || isNaN(newRate) || newRate <= 0) {
+                alert('Please enter a valid vehicle name and rate.');
+                return;
+            }
+            vehicles[idx].name = newName;
+            vehicles[idx].rate = newRate;
+            localStorage.setItem('deep_travels_vehicles', JSON.stringify(vehicles));
+            renderFleetUI();
+            calculateFare();
+            alert('Vehicle & rate updated successfully!');
+        }
+
+        function addNewVehicle() {
+            const cat = document.getElementById('newVehCategory').value.trim() || 'Premium Cab';
+            const name = document.getElementById('newVehName').value.trim();
+            const rate = parseInt(document.getElementById('newVehRate').value);
+
+            if(!name || isNaN(rate) || rate <= 0) {
+                alert('Please enter Vehicle Name and valid Per-Day Rate.');
+                return;
+            }
+
+            vehicles.push({
+                id: 'v_' + Date.now(),
+                category: cat,
+                name: name,
+                desc: 'Newly added well-maintained vehicle with experienced driver.',
+                rate: rate,
+                popular: false,
+                features: ['AC & Comfortable Seats', 'Experienced Driver Included', '24/7 Support']
+            });
+
+            localStorage.setItem('deep_travels_vehicles', JSON.stringify(vehicles));
+            document.getElementById('newVehCategory').value = '';
+            document.getElementById('newVehName').value = '';
+            document.getElementById('newVehRate').value = '';
+
+            renderAdminFleet();
+            renderFleetUI();
+            calculateFare();
+            alert(`${name} (₹${rate}/day) added to your fleet!`);
+        }
+
+        function deleteVehicle(idx) {
+            if(confirm(`Are you sure you want to remove "${vehicles[idx].name}" from your fleet?`)) {
+                vehicles.splice(idx, 1);
+                localStorage.setItem('deep_travels_vehicles', JSON.stringify(vehicles));
+                renderAdminFleet();
+                renderFleetUI();
+                calculateFare();
+            }
+        }
+
+        function saveAgencyWhatsApp() {
+            const num = document.getElementById('agencyWhatsAppInput').value.trim().replace(/[^0-9]/g, '');
+            if(!num || num.length < 10) {
+                alert('Please enter a valid WhatsApp number with country code (e.g. 919876543210).');
+                return;
+            }
+            agencyWhatsApp = num;
+            localStorage.setItem('deep_travels_whatsapp', agencyWhatsApp);
+            updatePhoneDisplays();
+            alert('Agency WhatsApp number saved! All customer bookings will now open directly in your WhatsApp chat.');
         }
 
         function loadAdminBookings() {
@@ -1007,23 +1207,44 @@
         function adminSendWhatsApp(idx, type) {
             const b = bookings[idx];
             if(type === 'guest') {
-                sendWhatsAppReceipt(b.bookingId);
+                const guestPhone = b.phone.replace(/[^0-9]/g, '');
+                const msg = encodeURIComponent(`*DEEP TRAVELS - BOOKING CONFIRMED*
+Booking ID: ${b.bookingId}
+Driver: ${b.driverName}
+Cab No: ${b.cabNumber}
+Pickup: ${b.pickupLoc} on ${b.pickupDate}
+Balance Due: ₹${b.balanceDue}`);
+                window.location.href = `https://api.whatsapp.com/send?phone=${guestPhone}&text=${msg}`;
             } else {
-                alert(`Duty slip dispatched to driver ${b.driverName} (${b.cabNumber}) for pickup at ${b.pickupLoc}`);
+                const msg = encodeURIComponent(`*DRIVER DUTY SLIP - DEEP TRAVELS*
+Booking ID: ${b.bookingId}
+Guest: ${b.name} (${b.phone})
+Pickup: ${b.pickupLoc} on ${b.pickupDate}
+Route: ${b.tripType.toUpperCase()} (${b.days} Days)
+Collect Balance: ₹${b.balanceDue}`);
+                window.location.href = `https://api.whatsapp.com/send?text=${msg}`;
             }
         }
 
         function adminSendReminder(idx) {
             const b = bookings[idx];
-            alert(`1-Day trip reminder successfully sent via WhatsApp to ${b.name} (${b.phone}) for pickup on ${b.pickupDate}. Balance due: ₹${b.balanceDue}`);
+            const guestPhone = b.phone.replace(/[^0-9]/g, '');
+            const msg = encodeURIComponent(`*TRIP REMINDER - DEEP TRAVELS*
+Hello ${b.name}, your trip (${b.bookingId}) is scheduled for tomorrow (${b.pickupDate}) from ${b.pickupLoc}.
+Driver: ${b.driverName} (${b.cabNumber}).
+Have a safe journey!`);
+            window.location.href = `https://api.whatsapp.com/send?phone=${guestPhone}&text=${msg}`;
         }
 
         function promptChangePin() {
             const newPin = prompt('Enter new 4-digit Admin PIN:');
-            if(newPin && newPin.length === 4) {
+            if(newPin && newPin.length === 4 && !isNaN(newPin)) {
+                adminPin = newPin;
+                localStorage.setItem('deep_travels_pin', adminPin);
+                updatePhoneDisplays();
                 alert('Admin PIN updated successfully!');
             } else if(newPin) {
-                alert('PIN must be 4 digits.');
+                alert('PIN must be 4 numeric digits.');
             }
         }
     </script>
