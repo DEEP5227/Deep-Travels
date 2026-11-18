@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ea580c">
     <title>Deep Travels | J&K, Ladakh & Himachal Tourist Transport & Cabs</title>
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,10 +15,9 @@
             theme: {
                 extend: {
                     colors: {
-                        deepnavy: '#0f172a',
-                        emeraldbrand: '#059669',
-                        emeralddark: '#047857',
-                        amberbrand: '#d97706'
+                        saffron: '#ea580c',
+                        saffrondark: '#c2410c',
+                        charcoal: '#1e293b'
                     }
                 }
             }
@@ -28,97 +31,96 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%); }
+        .hero-gradient { background: linear-gradient(135deg, #fff7ed 0%, #ffffff 55%, #ffedd5 100%); }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-orange-500 selection:text-white">
 
     <!-- Top Notice Bar -->
-    <div class="bg-emerald-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-md flex items-center justify-center gap-2">
+    <div class="bg-orange-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-sm flex items-center justify-center gap-2">
         <i class="fa-solid fa-phone-volume animate-bounce"></i>
         <span>24/7 Tourist Support & Cab Booking across Jammu, Srinagar, Ladakh & Himachal: <strong id="topSupportPhone">+91-9070065600</strong></span>
     </div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer" onclick="scrollToSection('hero')">
-                <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-900/50 text-white text-2xl font-black">
+                <div class="w-12 h-12 rounded-xl bg-orange-600 flex items-center justify-center shadow-md shadow-orange-200 text-white text-2xl font-black">
                     DT
                 </div>
                 <div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">DEEP TRAVELS</h1>
-                    <p class="text-xs text-emerald-400 font-medium tracking-wide">Tour & Travels Agency (J&K & Ladakh)</p>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">DEEP TRAVELS</h1>
+                    <p class="text-xs text-orange-600 font-semibold tracking-wide">Tour & Travels Agency (J&K & Ladakh)</p>
                 </div>
             </div>
 
             <!-- Nav Links -->
-            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
-                <button onclick="scrollToSection('estimator')" class="hover:text-emerald-400 transition">Book & Fare Estimator</button>
-                <button onclick="scrollToSection('packages')" class="hover:text-emerald-400 transition">Tour Packages</button>
-                <button onclick="scrollToSection('fleet')" class="hover:text-emerald-400 transition">Our Fleet & Rates</button>
-                <button onclick="scrollToSection('tracker')" class="hover:text-emerald-400 transition">Track Booking</button>
-                <button onclick="scrollToSection('reviews')" class="hover:text-emerald-400 transition">Reviews</button>
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <button onclick="scrollToSection('estimator')" class="hover:text-orange-600 transition">Book & Fare Estimator</button>
+                <button onclick="scrollToSection('packages')" class="hover:text-orange-600 transition">Tour Packages</button>
+                <button onclick="scrollToSection('fleet')" class="hover:text-orange-600 transition">Our Fleet & Rates</button>
+                <button onclick="scrollToSection('tracker')" class="hover:text-orange-600 transition">Track Booking</button>
+                <button onclick="scrollToSection('reviews')" class="hover:text-orange-600 transition">Reviews</button>
             </nav>
 
             <div class="flex items-center gap-3">
-                <a href="#estimator" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-900/30 transition text-sm flex items-center gap-2">
+                <a href="#estimator" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2.5 rounded-xl shadow-md shadow-orange-200 transition text-sm flex items-center gap-2">
                     <i class="fa-solid fa-car-side"></i> Book Cab
                 </a>
-                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden text-slate-700 hover:text-orange-600 p-2">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 py-4 space-y-3 font-medium text-sm">
-            <button onclick="scrollToSection('estimator'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-emerald-400">Book & Fare Estimator</button>
-            <button onclick="scrollToSection('packages'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-emerald-400">Tour Packages</button>
-            <button onclick="scrollToSection('fleet'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-emerald-400">Our Fleet & Rates</button>
-            <button onclick="scrollToSection('tracker'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-emerald-400">Track Booking</button>
-            <button onclick="scrollToSection('reviews'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-emerald-400">Reviews</button>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-3 font-semibold text-sm text-slate-700 shadow-lg">
+            <button onclick="scrollToSection('estimator'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-orange-600">Book & Fare Estimator</button>
+            <button onclick="scrollToSection('packages'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-orange-600">Tour Packages</button>
+            <button onclick="scrollToSection('fleet'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-orange-600">Our Fleet & Rates</button>
+            <button onclick="scrollToSection('tracker'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-orange-600">Track Booking</button>
+            <button onclick="scrollToSection('reviews'); toggleMobileMenu();" class="block w-full text-left py-2 hover:text-orange-600">Reviews</button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-gradient py-16 sm:py-24 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#059669_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <section id="hero" class="hero-gradient py-16 sm:py-24 px-4 relative overflow-hidden border-b border-orange-100">
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mb-6">
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200 mb-6">
                 <i class="fa-solid fa-shield-halved"></i> Trusted Tour & Transport Agency in Jammu
             </span>
-            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
-                Explore J&K, Ladakh & Himachal with <span class="text-emerald-400">Deep Travels</span>
+            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
+                Explore J&K, Ladakh & Himachal with <span class="text-orange-600">Deep Travels</span>
             </h2>
-            <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p class="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
                 From Jammu to Srinagar, Katra, Patnitop, Ladakh UT, and Himachal Pradesh. Professional drivers, well-maintained luxury cabs, and transparent per-day & package rates.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="scrollToSection('estimator')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-emerald-900/40 transition text-base flex items-center gap-3">
-                    <i class="fa-solid fa-bolt text-amber-300"></i> Instant Fare Estimator & Book
+                <button onclick="scrollToSection('estimator')" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-orange-200 transition text-base flex items-center gap-3">
+                    <i class="fa-solid fa-bolt text-amber-200"></i> Instant Fare Estimator & Book
                 </button>
-                <button onclick="scrollToSection('packages')" class="bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold px-8 py-4 rounded-2xl border border-slate-700 transition text-base flex items-center gap-2">
-                    <i class="fa-solid fa-map-location-dot text-emerald-400"></i> Explore Tour Packages
+                <button onclick="scrollToSection('packages')" class="bg-white hover:bg-slate-100 text-slate-800 font-bold px-8 py-4 rounded-2xl border border-slate-300 shadow-sm transition text-base flex items-center gap-2">
+                    <i class="fa-solid fa-map-location-dot text-orange-600"></i> Explore Tour Packages
                 </button>
             </div>
             
             <!-- Key Badges -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16 pt-10 border-t border-slate-800/80 text-left">
-                <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-car"></i> 5 to 26 Seater</div>
-                    <div class="text-xs text-slate-400">Innova, Dzire, Urbania, Force Traveller</div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16 pt-10 border-t border-orange-200/60 text-left">
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="text-orange-600 text-xl font-extrabold mb-1"><i class="fa-solid fa-car"></i> 5 to 26 Seater</div>
+                    <div class="text-xs text-slate-500 font-medium">Innova, Dzire, Urbania, Force Traveller</div>
                 </div>
-                <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-shield-check"></i> Verified Drivers</div>
-                    <div class="text-xs text-slate-400">Experienced mountain experts</div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="text-orange-600 text-xl font-extrabold mb-1"><i class="fa-solid fa-shield-check"></i> Verified Drivers</div>
+                    <div class="text-xs text-slate-500 font-medium">Experienced mountain experts</div>
                 </div>
-                <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-file-invoice-dollar"></i> Instant Invoice</div>
-                    <div class="text-xs text-slate-400">PDF downloads & WhatsApp receipts</div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="text-orange-600 text-xl font-extrabold mb-1"><i class="fa-solid fa-file-invoice-dollar"></i> Instant Invoice</div>
+                    <div class="text-xs text-slate-500 font-medium">PDF downloads & WhatsApp receipts</div>
                 </div>
-                <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-emerald-400 text-xl font-bold mb-1"><i class="fa-solid fa-wallet"></i> Razorpay Secure</div>
-                    <div class="text-xs text-slate-400">UPI, Cards & Net Banking</div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="text-orange-600 text-xl font-extrabold mb-1"><i class="fa-solid fa-wallet"></i> Razorpay Secure</div>
+                    <div class="text-xs text-slate-500 font-medium">UPI, Cards & Net Banking</div>
                 </div>
             </div>
         </div>
@@ -127,225 +129,130 @@
     <!-- Dynamic Fleet Tariff Card Section -->
     <section id="fleet" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-12">
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-3">Our Well-Maintained Fleet & Tariff Rates</h2>
-            <p class="text-slate-400 text-sm sm:text-base">Transparent per-day rental rates with verified drivers for local and long-distance tours.</p>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3">Our Well-Maintained Fleet & Tariff Rates</h2>
+            <p class="text-slate-600 text-sm sm:text-base">Transparent per-day rental rates with verified drivers for local and long-distance tours.</p>
         </div>
         <div id="fleetCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Dynamically rendered from Fleet Data -->
         </div>
     </section>
 
-    <!-- Tour Packages Section -->
-    <section id="packages" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-slate-900/40 rounded-3xl my-8 border border-slate-800/80">
+    <!-- Dynamic Tour Packages Section -->
+    <section id="packages" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-orange-50/70 rounded-3xl my-8 border border-orange-100">
         <div class="text-center mb-12">
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-3">Popular Tour Packages & Sightseeing</h2>
-            <p class="text-slate-400 text-sm sm:text-base">Pre-planned itineraries from Jammu to Kashmir, Ladakh, Himachal & Holy Shrines.</p>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3">Popular Tour Packages & Sightseeing</h2>
+            <p class="text-slate-600 text-sm sm:text-base">Pre-planned itineraries from Jammu to Kashmir, Ladakh, Himachal & Holy Shrines.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Package 1 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Day Trip</span>
-                        <span class="text-emerald-400 font-extrabold">From ₹3,500</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Jammu to Patnitop Sightseeing</h3>
-                    <p class="text-xs text-slate-400 mb-4">Pine forests, Sanasar lake, meadows, and breathtaking mountain peaks.</p>
-                </div>
-                <button onclick="selectPackage('patnitop', 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
-            </div>
-
-            <!-- Package 2 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Day Trip</span>
-                        <span class="text-emerald-400 font-extrabold">From ₹4,000</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Reasi, Salal Dam & Chenab Bridge</h3>
-                    <p class="text-xs text-slate-400 mb-4">World's highest railway arch bridge sightseeing, Salal dam, and historical Reasi.</p>
-                </div>
-                <button onclick="selectPackage('reasi', 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
-            </div>
-
-            <!-- Package 3 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Day Trip</span>
-                        <span class="text-emerald-400 font-extrabold">From ₹3,200</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Jammu to Mansar & Surinsar Lakes</h3>
-                    <p class="text-xs text-slate-400 mb-4">Twin holy lakes surrounded by forest-covered hills and tortoise sanctuary.</p>
-                </div>
-                <button onclick="selectPackage('mansar', 1)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
-            </div>
-
-            <!-- Package 4 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full">2 Days / 1 Night</span>
-                        <span class="text-emerald-400 font-extrabold">From ₹7,500</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Jammu to Amritsar & Wagah Border</h3>
-                    <p class="text-xs text-slate-400 mb-4">Golden Temple, Jallianwala Bagh, and patriotic Wagah Border ceremony.</p>
-                </div>
-                <button onclick="selectPackage('amritsar', 2)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
-            </div>
-
-            <!-- Package 5 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-purple-500/20 text-purple-400 text-xs font-bold px-3 py-1 rounded-full">7 Days / 6 Nights</span>
-                        <span class="text-emerald-400 font-extrabold">From ₹24,500</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Jammu ➔ Srinagar ➔ Gulmarg ➔ Pahalgam</h3>
-                    <p class="text-xs text-slate-400 mb-4">Complete Kashmir valley tour with Mughal gardens, snow peaks & houseboat stay.</p>
-                </div>
-                <button onclick="selectPackage('srinagar', 7)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
-            </div>
-
-            <!-- Package 6 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-rose-500/25 text-rose-400 text-xs font-bold px-3 py-1 rounded-full">9 Days / 8 Nights</span>
-                        <span class="text-emerald-400 font-extrabold">From ₹42,000</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Jammu ➔ Srinagar ➔ Leh Ladakh Tour</h3>
-                    <p class="text-xs text-slate-400 mb-4">Zojila Pass, Kargil, Leh, Nubra Valley, Pangong Tso lake & Khardung La top.</p>
-                </div>
-                <button onclick="selectPackage('ladakh', 9)" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white font-semibold py-2.5 rounded-xl border border-emerald-500/30 transition text-sm">Book Package</button>
-            </div>
+        <div id="packagesCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamically rendered from Packages Data -->
         </div>
     </section>
 
     <!-- Instant Fare Estimator & Booking Section -->
     <section id="estimator" class="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <div class="bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            
+        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden">
             <div class="text-center mb-10">
-                <span class="text-emerald-400 text-xs font-bold tracking-widest uppercase bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Instant Calculator</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3">Fare Estimator & Online Booking</h2>
-                <p class="text-slate-400 text-sm mt-1">Select your vehicle, route, duration and apply coupon codes for instant discounts.</p>
+                <span class="text-orange-600 text-xs font-bold tracking-widest uppercase bg-orange-50 px-3 py-1 rounded-full border border-orange-200">Instant Calculator</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Fare Estimator & Online Booking</h2>
+                <p class="text-slate-600 text-sm mt-1">Select your vehicle, route, duration and apply coupon codes for instant discounts.</p>
             </div>
 
             <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- Passenger Name -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Full Name *</label>
-                        <input type="text" id="custName" required placeholder="e.g. Rahul Sharma" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Full Name *</label>
+                        <input type="text" id="custName" required placeholder="e.g. Rahul Sharma" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500">
                     </div>
-                    <!-- Phone Number -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">WhatsApp Phone Number *</label>
-                        <input type="tel" id="custPhone" required placeholder="e.g. +91 9876543210" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">WhatsApp Phone Number *</label>
+                        <input type="tel" id="custPhone" required placeholder="e.g. +91 9876543210" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- Email Address -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Email Address (for PDF Invoice) *</label>
-                        <input type="email" id="custEmail" required placeholder="e.g. rahul@gmail.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Email Address (for PDF Invoice) *</label>
+                        <input type="email" id="custEmail" required placeholder="e.g. rahul@gmail.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500">
                     </div>
-                    <!-- Vehicle Type (Dynamically Populated) -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Select Vehicle *</label>
-                        <select id="vehicleSelect" onchange="calculateFare()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
-                            <!-- Dynamically populated -->
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Select Vehicle *</label>
+                        <select id="vehicleSelect" onchange="calculateFare()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-orange-500">
                         </select>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <!-- Trip Type / Route -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Trip / Package Type *</label>
-                        <select id="tripType" onchange="onTripTypeChange()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
-                            <option value="custom">Custom Rental (Per Day)</option>
-                            <option value="patnitop">Jammu to Patnitop (1 Day)</option>
-                            <option value="reasi">Jammu to Reasi & Chenab Bridge (1 Day)</option>
-                            <option value="mansar">Jammu to Mansar-Surinsar (1 Day)</option>
-                            <option value="amritsar">Jammu to Amritsar & Wagah (2 Days)</option>
-                            <option value="srinagar">Jammu to Srinagar 7-Day Tour (7 Days)</option>
-                            <option value="ladakh">Jammu to Leh Ladakh Expedition (9 Days)</option>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Trip / Package Type *</label>
+                        <select id="tripType" onchange="onTripTypeChange()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-orange-500">
                         </select>
                     </div>
-                    <!-- Number of Days -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Number of Days *</label>
-                        <input type="number" id="numDays" min="1" max="30" value="1" oninput="calculateFare()" onchange="calculateFare()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Number of Days *</label>
+                        <input type="number" id="numDays" min="1" max="30" value="1" oninput="calculateFare()" onchange="calculateFare()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-orange-500">
                     </div>
-                    <!-- Pickup Date -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Pickup Date *</label>
-                        <input type="date" id="pickupDate" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Pickup Date *</label>
+                        <input type="date" id="pickupDate" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-orange-500">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- Pickup Location -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Pickup Location *</label>
-                        <input type="text" id="pickupLoc" required placeholder="e.g. Jammu Tawi Railway Station / Airport / Hotel" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Pickup Location *</label>
+                        <input type="text" id="pickupLoc" required placeholder="e.g. Jammu Tawi Railway Station / Airport / Hotel" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500">
                     </div>
-                    <!-- Coupon Code -->
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Coupon Code (Optional)</label>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Coupon Code (Optional)</label>
                         <div class="flex gap-2">
-                            <input type="text" id="couponCode" placeholder="e.g. DEEP10 or WELCOME500" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white uppercase placeholder-slate-600 focus:outline-none focus:border-emerald-500">
-                            <button type="button" onclick="applyCoupon()" class="bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold px-4 py-3 rounded-xl border border-slate-700 transition text-sm">Apply</button>
+                            <input type="text" id="couponCode" placeholder="e.g. DEEP10 or WELCOME500" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 uppercase placeholder-slate-400 focus:outline-none focus:border-orange-500">
+                            <button type="button" onclick="applyCoupon()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-4 py-3 rounded-xl transition text-sm">Apply</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Payment Preference -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Payment Mode *</label>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Payment Mode *</label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <label class="flex items-center gap-3 bg-slate-950 border border-slate-800 p-4 rounded-xl cursor-pointer hover:border-emerald-500 transition">
-                            <input type="radio" name="payMode" value="advance" checked class="text-emerald-600 focus:ring-emerald-500">
+                        <label class="flex items-center gap-3 bg-slate-50 border border-slate-300 p-4 rounded-xl cursor-pointer hover:border-orange-500 transition">
+                            <input type="radio" name="payMode" value="advance" checked class="text-orange-600 focus:ring-orange-500">
                             <div>
-                                <div class="text-sm font-bold text-white">Pay 20% Token Advance</div>
-                                <div class="text-xs text-slate-400">Balance 80% payable to driver at pickup</div>
+                                <div class="text-sm font-bold text-slate-900">Pay 20% Token Advance</div>
+                                <div class="text-xs text-slate-500">Balance 80% payable to driver at pickup</div>
                             </div>
                         </label>
-                        <label class="flex items-center gap-3 bg-slate-950 border border-slate-800 p-4 rounded-xl cursor-pointer hover:border-emerald-500 transition">
-                            <input type="radio" name="payMode" value="full" class="text-emerald-600 focus:ring-emerald-500">
+                        <label class="flex items-center gap-3 bg-slate-50 border border-slate-300 p-4 rounded-xl cursor-pointer hover:border-orange-500 transition">
+                            <input type="radio" name="payMode" value="full" class="text-orange-600 focus:ring-orange-500">
                             <div>
-                                <div class="text-sm font-bold text-white">Pay 100% Full Payment Online</div>
-                                <div class="text-xs text-slate-400">Fully prepaid booking receipt</div>
+                                <div class="text-sm font-bold text-slate-900">Pay 100% Full Payment Online</div>
+                                <div class="text-xs text-slate-500">Fully prepaid booking receipt</div>
                             </div>
                         </label>
                     </div>
                 </div>
 
                 <!-- Fare Summary Box -->
-                <div class="bg-slate-950 border border-emerald-500/30 rounded-2xl p-6 space-y-3">
-                    <div class="flex justify-between text-sm text-slate-300">
+                <div class="bg-orange-50/80 border border-orange-200 rounded-2xl p-6 space-y-3">
+                    <div class="flex justify-between text-sm text-slate-700 font-medium">
                         <span>Base Amount:</span>
                         <span id="baseAmountText">₹4,500</span>
                     </div>
-                    <div class="flex justify-between text-sm text-emerald-400" id="discountRow" style="display: none;">
+                    <div class="flex justify-between text-sm text-emerald-700 font-semibold" id="discountRow" style="display: none;">
                         <span>Coupon Discount:</span>
                         <span id="discountAmountText">-₹0</span>
                     </div>
-                    <div class="flex justify-between text-lg font-extrabold text-white pt-3 border-t border-slate-800">
+                    <div class="flex justify-between text-lg font-extrabold text-slate-900 pt-3 border-t border-orange-200">
                         <span>Total Trip Fare:</span>
-                        <span id="totalFareText" class="text-emerald-400">₹4,500</span>
+                        <span id="totalFareText" class="text-orange-600">₹4,500</span>
                     </div>
-                    <div class="flex justify-between text-sm text-amber-400 font-semibold pt-1">
+                    <div class="flex justify-between text-sm text-amber-700 font-bold pt-1">
                         <span id="payableNowLabel">Amount Payable Now (20% Advance):</span>
                         <span id="payableNowText">₹900</span>
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-emerald-900/40 transition text-base flex items-center justify-center gap-2">
+                <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-extrabold py-4 rounded-2xl shadow-lg shadow-orange-200 transition text-base flex items-center justify-center gap-2">
                     <i class="fa-solid fa-credit-card"></i> Pay Online via Razorpay & Confirm
                 </button>
             </form>
@@ -354,21 +261,21 @@
 
     <!-- Booking Tracker & Invoice Section -->
     <section id="tracker" class="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <div class="bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-xl">
+        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-lg">
             <div class="text-center mb-8">
-                <h2 class="text-2xl font-extrabold text-white mb-2">Track Your Booking & Get PDF Invoice</h2>
-                <p class="text-slate-400 text-sm">Enter your Booking ID or registered phone number to check status and download bills.</p>
+                <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Track Your Booking & Get PDF Invoice</h2>
+                <p class="text-slate-600 text-sm">Enter your Booking ID or registered phone number to check status and download bills.</p>
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                <input type="text" id="searchBookingInput" placeholder="Enter Booking ID (e.g. DT-8492) or Phone Number" class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
-                <button onclick="searchBooking()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                <input type="text" id="searchBookingInput" placeholder="Enter Booking ID (e.g. DT-8492) or Phone Number" class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500">
+                <button onclick="searchBooking()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-6 py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
                     <i class="fa-solid fa-magnifying-glass"></i> Search Booking
                 </button>
             </div>
 
             <div id="bookingResultArea" class="space-y-4">
-                <div class="text-center py-8 text-slate-500 text-sm">No booking searched yet. Enter details above or book a new trip.</div>
+                <div class="text-center py-8 text-slate-400 text-sm">No booking searched yet. Enter details above or book a new trip.</div>
             </div>
         </div>
     </section>
@@ -376,91 +283,43 @@
     <!-- Customer Reviews Section -->
     <section id="reviews" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-12">
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-3">What Our Tourists Say</h2>
-            <p class="text-slate-400 text-sm sm:text-base">Read genuine experiences from families and travellers who toured with Deep Travels.</p>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3">What Our Tourists Say</h2>
+            <p class="text-slate-600 text-sm sm:text-base">Read genuine experiences from families and travellers who toured with Deep Travels.</p>
         </div>
 
         <!-- Reviews Grid -->
         <div id="reviewsGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-            <!-- Review 1 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
-                <div>
-                    <div class="flex text-amber-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-300 text-sm italic mb-4">"Booked an Innova from Jammu to Srinagar and Gulmarg for 7 days. Driver was extremely polite, expert in mountain driving, and car was very clean. Highly recommended!"</p>
-                </div>
-                <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                    <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">AS</div>
-                    <div>
-                        <div class="text-sm font-bold text-white">Amit Saxena</div>
-                        <div class="text-xs text-slate-400">Delhi to Srinagar Tourist</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Review 2 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
-                <div>
-                    <div class="flex text-amber-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-300 text-sm italic mb-4">"Very smooth online booking with instant WhatsApp confirmation slip. Took 5 Seater Dzire for Patnitop day trip!"</p>
-                </div>
-                <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                    <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">PK</div>
-                    <div>
-                        <div class="text-sm font-bold text-white">Pooja Kapoor</div>
-                        <div class="text-xs text-slate-400">Chandigarh to Patnitop</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Review 3 -->
-            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
-                <div>
-                    <div class="flex text-amber-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-300 text-sm italic mb-4">"Amazing service! Booked a 13-Seater Traveller for Katra & Reasi Chenab Bridge tour. Deep Travels owner coordinated everything perfectly."</p>
-                </div>
-                <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                    <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">MK</div>
-                    <div>
-                        <div class="text-sm font-bold text-white">Manish Kumar</div>
-                        <div class="text-xs text-slate-400">Jammu Local & Katra</div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Add Review Form Box -->
-        <div class="max-w-2xl mx-auto bg-slate-900 rounded-3xl p-6 sm:p-8 border border-emerald-500/30 shadow-xl">
-            <h3 class="text-xl font-bold text-white mb-2 text-center">Share Your Experience with Deep Travels</h3>
-            <p class="text-xs text-slate-400 text-sm mb-6 text-center">Have you travelled with us? Leave your review below to help future tourists.</p>
+        <div class="max-w-2xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg">
+            <h3 class="text-xl font-bold text-slate-900 mb-2 text-center">Share Your Experience with Deep Travels</h3>
+            <p class="text-xs text-slate-500 text-sm mb-6 text-center">Have you travelled with us? Leave your review below to help future tourists.</p>
             
             <form id="addReviewForm" onsubmit="handleNewReview(event)" class="space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Your Name *</label>
-                        <input type="text" id="reviewName" required placeholder="e.g. Rohit Sharma" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Your Name *</label>
+                        <input type="text" id="reviewName" required placeholder="e.g. Rohit Sharma" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-orange-500">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Location / From *</label>
-                        <input type="text" id="reviewLocation" required placeholder="e.g. Mumbai Tourist" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Location / From *</label>
+                        <input type="text" id="reviewLocation" required placeholder="e.g. Mumbai Tourist" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-orange-500">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Rating *</label>
-                    <select id="reviewRating" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Rating *</label>
+                    <select id="reviewRating" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-orange-500">
                         <option value="5">⭐⭐⭐⭐⭐ (5/5 - Excellent)</option>
                         <option value="4">⭐⭐⭐⭐ (4/5 - Very Good)</option>
                         <option value="3">⭐⭐⭐ (3/5 - Good)</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Your Review Message *</label>
-                    <textarea id="reviewText" required rows="3" placeholder="Write about your trip, driver behavior, cab cleanliness, etc." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500"></textarea>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Your Review Message *</label>
+                    <textarea id="reviewText" required rows="3" placeholder="Write about your trip, driver behavior, cab cleanliness, etc." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-orange-500"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i> Submit Review
                 </button>
             </form>
@@ -468,63 +327,91 @@
     </section>
 
     <!-- Hidden Admin Panel Modal / Section -->
-    <div id="adminPanelModal" class="hidden fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md overflow-y-auto p-4 sm:p-6">
-        <div class="max-w-6xl mx-auto bg-slate-900 rounded-3xl border border-emerald-500/40 p-6 sm:p-8 shadow-2xl relative">
-            <button onclick="closeAdminPanel()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-10 h-10 rounded-full flex items-center justify-center">&times;</button>
+    <div id="adminPanelModal" class="hidden fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md overflow-y-auto p-4 sm:p-6">
+        <div class="max-w-6xl mx-auto bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-2xl relative text-slate-900">
+            <button onclick="closeAdminPanel()" class="absolute top-6 right-6 text-slate-500 hover:text-slate-900 text-xl font-bold bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">&times;</button>
             
             <div class="flex items-center gap-3 mb-8">
-                <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-lg font-bold">
+                <div class="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center text-white text-lg font-bold">
                     <i class="fa-solid fa-user-shield"></i>
                 </div>
                 <div>
-                    <h2 class="text-2xl font-extrabold text-white">Deep Travels Owner Dashboard</h2>
-                    <p class="text-xs text-emerald-400">Manage bookings, vehicles & rates, driver assignments, and WhatsApp dispatches</p>
+                    <h2 class="text-2xl font-extrabold text-slate-900">Deep Travels Owner Dashboard</h2>
+                    <p class="text-xs text-orange-600 font-semibold">Manage bookings, vehicles & rates, tour packages, driver assignments, and WhatsApp dispatches</p>
                 </div>
             </div>
 
             <!-- Admin KPIs -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-xs text-slate-400 mb-1">Total Bookings</div>
-                    <div id="adminTotalBookings" class="text-2xl font-extrabold text-white">0</div>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <div class="text-xs text-slate-500 font-semibold mb-1">Total Bookings</div>
+                    <div id="adminTotalBookings" class="text-2xl font-extrabold text-slate-900">0</div>
                 </div>
-                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-xs text-slate-400 mb-1">Gross Revenue</div>
-                    <div id="adminGrossRev" class="text-2xl font-extrabold text-emerald-400">₹0</div>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <div class="text-xs text-slate-500 font-semibold mb-1">Gross Revenue</div>
+                    <div id="adminGrossRev" class="text-2xl font-extrabold text-orange-600">₹0</div>
                 </div>
-                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-xs text-slate-400 mb-1">Advance Collected</div>
-                    <div id="adminAdvanceColl" class="text-2xl font-extrabold text-blue-400">₹0</div>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <div class="text-xs text-slate-500 font-semibold mb-1">Advance Collected</div>
+                    <div id="adminAdvanceColl" class="text-2xl font-extrabold text-emerald-600">₹0</div>
                 </div>
-                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-xs text-slate-400 mb-1">Balance to Collect</div>
-                    <div id="adminBalanceColl" class="text-2xl font-extrabold text-amber-400">₹0</div>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <div class="text-xs text-slate-500 font-semibold mb-1">Balance to Collect</div>
+                    <div id="adminBalanceColl" class="text-2xl font-extrabold text-amber-600">₹0</div>
                 </div>
             </div>
 
             <!-- Fleet & Rate Manager -->
-            <div class="bg-slate-950 p-6 rounded-2xl border border-emerald-500/30 mb-8">
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                     <div>
-                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                            <i class="fa-solid fa-car-rear text-emerald-400"></i> Manage Fleet Vehicles & Per-Day Rates
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-car-rear text-orange-600"></i> Manage Fleet Vehicles & Per-Day Rates
                         </h3>
-                        <p class="text-xs text-slate-400">Edit existing vehicle rates or add a new vehicle directly from here—changes apply immediately!</p>
+                        <p class="text-xs text-slate-500">Edit existing vehicle rates or add a new vehicle directly from here—changes apply immediately!</p>
                     </div>
                 </div>
 
                 <div id="adminFleetList" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <!-- Populated via JS -->
                 </div>
 
-                <div class="pt-4 border-t border-slate-800">
-                    <h4 class="text-sm font-bold text-emerald-400 mb-3">+ Add New Vehicle to Fleet</h4>
+                <div class="pt-4 border-t border-slate-200">
+                    <h4 class="text-sm font-bold text-orange-600 mb-3">+ Add New Vehicle to Fleet</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
-                        <input type="text" id="newVehCategory" placeholder="Category (e.g. Luxury SUV)" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
-                        <input type="text" id="newVehName" placeholder="Vehicle Name (e.g. Toyota Fortuner)" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
-                        <input type="number" id="newVehRate" placeholder="Rate/Day in ₹ (e.g. 8500)" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
-                        <button onclick="addNewVehicle()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                        <input type="text" id="newVehCategory" placeholder="Category (e.g. Luxury SUV)" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500">
+                        <input type="text" id="newVehName" placeholder="Vehicle Name (e.g. Toyota Fortuner)" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500">
+                        <input type="number" id="newVehRate" placeholder="Rate/Day in ₹ (e.g. 8500)" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500">
+                        <button onclick="addNewVehicle()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
                             <i class="fa-solid fa-plus"></i> Add Vehicle
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Packages Manager -->
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-orange-600"></i> Manage Tour Packages & Sightseeing
+                        </h3>
+                        <p class="text-xs text-slate-500">Edit package title, duration badge, starting price, description, or add brand-new tour packages!</p>
+                    </div>
+                </div>
+
+                <div id="adminPackagesList" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                </div>
+
+                <div class="pt-4 border-t border-slate-200">
+                    <h4 class="text-sm font-bold text-orange-600 mb-3">+ Add New Tour Package</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                        <input type="text" id="newPkgTitle" placeholder="Package Title (e.g. Jammu to Katra Darshan)" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500">
+                        <input type="text" id="newPkgBadge" placeholder="Duration Tag (e.g. 2 Days / 1 Night)" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500">
+                        <input type="number" id="newPkgDays" min="1" max="30" placeholder="Days (e.g. 2)" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500">
+                        <input type="number" id="newPkgPrice" placeholder="Starting Price ₹ (e.g. 6500)" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500">
+                        <input type="text" id="newPkgDesc" placeholder="Short Description / Highlights" class="bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-orange-500 sm:col-span-2 lg:col-span-4">
+                        <button onclick="addNewPackage()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-plus"></i> Add Package
                         </button>
                     </div>
                 </div>
@@ -533,13 +420,13 @@
             <!-- Bookings Table -->
             <div class="mb-8">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-lg font-bold text-white">All Customer Bookings</h3>
-                    <button onclick="loadAdminBookings()" class="bg-slate-800 hover:bg-slate-700 text-emerald-400 px-4 py-2 rounded-xl text-xs font-bold border border-slate-700">Refresh Data</button>
+                    <h3 class="text-lg font-bold text-slate-900">All Customer Bookings</h3>
+                    <button onclick="loadAdminBookings()" class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-bold">Refresh Data</button>
                 </div>
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
                     <table class="w-full text-left border-collapse text-sm">
-                        <thead>
-                            <tr class="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
+                        <thead class="bg-slate-100">
+                            <tr class="border-b border-slate-200 text-slate-600 text-xs uppercase tracking-wider">
                                 <th class="p-3">ID & Date</th>
                                 <th class="p-3">Customer</th>
                                 <th class="p-3">Route / Vehicle</th>
@@ -548,42 +435,41 @@
                                 <th class="p-3">Actions (WhatsApp)</th>
                             </tr>
                         </thead>
-                        <tbody id="adminBookingsTableBody" class="divide-y divide-slate-800 text-slate-300">
-                            <!-- Injected dynamically -->
+                        <tbody id="adminBookingsTableBody" class="divide-y divide-slate-200 text-slate-700 bg-white">
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <!-- Admin Settings & WhatsApp Number -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-slate-800">
-                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
-                    <h4 class="text-sm font-bold text-white mb-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> Agency WhatsApp Number</h4>
-                    <p class="text-xs text-slate-400 mb-3">Customer bookings will be sent directly to this WhatsApp number.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-slate-200">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h4 class="text-sm font-bold text-slate-900 mb-2"><i class="fa-brands fa-whatsapp text-emerald-600"></i> Agency WhatsApp Number</h4>
+                    <p class="text-xs text-slate-500 mb-3">Customer bookings will be sent directly to this WhatsApp number.</p>
                     <div class="flex gap-2">
-                        <input type="text" id="agencyWhatsAppInput" placeholder="e.g. 919070065600" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white">
-                        <button onclick="saveAgencyWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs">Save Number</button>
+                        <input type="text" id="agencyWhatsAppInput" placeholder="e.g. 919070065600" class="flex-1 bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900">
+                        <button onclick="saveAgencyWhatsApp()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2 rounded-xl text-xs">Save Number</button>
                     </div>
                 </div>
 
-                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
-                    <h4 class="text-sm font-bold text-white mb-2"><i class="fa-solid fa-lock text-emerald-400"></i> Admin PIN & Security</h4>
-                    <p class="text-xs text-slate-400 mb-3">Current Admin PIN: <strong id="currentPinDisplay" class="text-white">1234</strong> (Tap footer logo 5 times anytime to open this panel).</p>
-                    <button onclick="promptChangePin()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs border border-slate-700">Change Admin PIN</button>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h4 class="text-sm font-bold text-slate-900 mb-2"><i class="fa-solid fa-lock text-orange-600"></i> Admin PIN & Security</h4>
+                    <p class="text-xs text-slate-500 mb-3">Current Admin PIN: <strong id="currentPinDisplay" class="text-slate-900">1234</strong> (Tap footer logo 5 times anytime to open this panel).</p>
+                    <button onclick="promptChangePin()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-4 py-2.5 rounded-xl text-xs">Change Admin PIN</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8 mt-auto">
+    <footer class="bg-slate-900 text-slate-300 py-12 px-4 sm:px-6 lg:px-8 mt-auto">
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
             <div>
                 <div class="flex items-center gap-3 cursor-pointer mb-4" onclick="triggerSecretAdmin()">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-black">DT</div>
+                    <div class="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center text-white font-black">DT</div>
                     <div>
                         <h3 class="text-lg font-bold text-white">DEEP TRAVELS</h3>
-                        <p class="text-xs text-emerald-400">Jammu, Srinagar, Ladakh & Himachal</p>
+                        <p class="text-xs text-orange-400">Jammu, Srinagar, Ladakh & Himachal</p>
                     </div>
                 </div>
                 <p class="text-xs text-slate-400 leading-relaxed">
@@ -593,27 +479,38 @@
             <div>
                 <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
                 <ul class="space-y-2 text-xs text-slate-400">
-                    <li><button onclick="scrollToSection('estimator')" class="hover:text-emerald-400">Fare Estimator & Booking</button></li>
-                    <li><button onclick="scrollToSection('packages')" class="hover:text-emerald-400">Tour Packages</button></li>
-                    <li><button onclick="scrollToSection('fleet')" class="hover:text-emerald-400">Our Fleet & Rates</button></li>
-                    <li><button onclick="scrollToSection('tracker')" class="hover:text-emerald-400">Track Booking & Invoice</button></li>
+                    <li><button onclick="scrollToSection('estimator')" class="hover:text-orange-400">Fare Estimator & Booking</button></li>
+                    <li><button onclick="scrollToSection('packages')" class="hover:text-orange-400">Tour Packages</button></li>
+                    <li><button onclick="scrollToSection('fleet')" class="hover:text-orange-400">Our Fleet & Rates</button></li>
+                    <li><button onclick="scrollToSection('tracker')" class="hover:text-orange-400">Track Booking & Invoice</button></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Contact & Office</h4>
                 <ul class="space-y-2 text-xs text-slate-400">
-                    <li><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> Jammu Tawi / R.S. Pura, J&K, India</li>
-                    <li><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> <span id="footerPhone">+91-9070065600</span></li>
-                    <li><i class="fa-solid fa-envelope text-emerald-500 mr-2"></i> gaggig687@gmail.com</li>
-                    <li><i class="fa-solid fa-clock text-emerald-500 mr-2"></i> Open 24/7 (All Days)</li>
+                    <li><i class="fa-solid fa-location-dot text-orange-500 mr-2"></i> Jammu Tawi / R.S. Pura, J&K, India</li>
+                    <li><i class="fa-solid fa-phone text-orange-500 mr-2"></i> <span id="footerPhone">+91-9070065600</span></li>
+                    <li><i class="fa-solid fa-envelope text-orange-500 mr-2"></i> gaggig687@gmail.com</li>
+                    <li><i class="fa-solid fa-clock text-orange-500 mr-2"></i> Open 24/7 (All Days)</li>
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto pt-6 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto pt-6 border-t border-slate-800 text-center text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>&copy; 2026 Deep Travels (Tour & Travels Agency). All rights reserved.</p>
-            <p class="cursor-pointer hover:text-emerald-400 transition" onclick="triggerSecretAdmin()">🔒 Owner Login (Secret Tap)</p>
+            <p class="cursor-pointer hover:text-orange-400 transition" onclick="triggerSecretAdmin()">🔒 Owner Login (Secret Tap)</p>
         </div>
     </footer>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registered!', reg))
+                    .catch(err => console.log('Service Worker failed:', err));
+            });
+        }
+    </script>
 
     <!-- JavaScript Logic -->
     <script>
@@ -624,7 +521,17 @@
             { id: 'v4', category: 'Force Urbania & Large Coach', name: '17 / 20 / 26 Seater Urbania', desc: 'For large tourist groups, corporate & institutional tours.', rate: 7000, popular: false, features: ['Premium Executive Legroom', 'Dedicated Tour Captain', 'AC & Safety Certified'] }
         ];
 
+        const defaultPackages = [
+            { id: 'patnitop', title: 'Jammu to Patnitop Sightseeing', badge: 'Day Trip', badgeColor: 'orange', days: 1, price: 3500, desc: 'Pine forests, Sanasar lake, meadows, and breathtaking mountain peaks.' },
+            { id: 'reasi', title: 'Reasi, Salal Dam & Chenab Bridge', badge: 'Day Trip', badgeColor: 'orange', days: 1, price: 4000, desc: "World's highest railway arch bridge sightseeing, Salal dam, and historical Reasi." },
+            { id: 'mansar', title: 'Jammu to Mansar & Surinsar Lakes', badge: 'Day Trip', badgeColor: 'orange', days: 1, price: 3200, desc: 'Twin holy lakes surrounded by forest-covered hills and tortoise sanctuary.' },
+            { id: 'amritsar', title: 'Jammu to Amritsar & Wagah Border', badge: '2 Days / 1 Night', badgeColor: 'blue', days: 2, price: 7500, desc: 'Golden Temple, Jallianwala Bagh, and patriotic Wagah Border ceremony.' },
+            { id: 'srinagar', title: 'Jammu ➔ Srinagar ➔ Gulmarg ➔ Pahalgam', badge: '7 Days / 6 Nights', badgeColor: 'purple', days: 7, price: 24500, desc: 'Complete Kashmir valley tour with Mughal gardens, snow peaks & houseboat stay.' },
+            { id: 'ladakh', title: 'Jammu ➔ Srinagar ➔ Leh Ladakh Tour', badge: '9 Days / 8 Nights', badgeColor: 'rose', days: 9, price: 42000, desc: 'Zojila Pass, Kargil, Leh, Nubra Valley, Pangong Tso lake & Khardung La top.' }
+        ];
+
         let vehicles = JSON.parse(localStorage.getItem('deep_travels_vehicles')) || defaultVehicles;
+        let tourPackages = JSON.parse(localStorage.getItem('deep_travels_packages')) || defaultPackages;
         let bookings = JSON.parse(localStorage.getItem('deep_travels_bookings') || '[]');
         let reviews = JSON.parse(localStorage.getItem('deep_travels_reviews') || '[]');
         let adminPin = localStorage.getItem('deep_travels_pin') || '1234';
@@ -637,6 +544,7 @@
         document.getElementById('pickupDate').valueAsDate = new Date();
         updatePhoneDisplays();
         renderFleetUI();
+        renderPackagesUI();
         renderReviewsUI();
         calculateFare();
 
@@ -660,27 +568,27 @@
             select.innerHTML = '';
 
             vehicles.forEach((v, index) => {
-                const badgeHTML = v.popular ? `<div class="absolute -top-3 right-6 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Most Popular</div>` : '';
-                const borderClass = v.popular ? 'border-emerald-500/40 shadow-emerald-950/30 relative' : 'border-slate-800 hover:border-emerald-500/50';
-                const btnClass = v.popular ? 'bg-emerald-600 hover:bg-emerald-500' : 'bg-slate-800 hover:bg-emerald-600';
+                const badgeHTML = v.popular ? `<div class="absolute -top-3 right-6 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Most Popular</div>` : '';
+                const borderClass = v.popular ? 'border-orange-500 shadow-orange-100 relative' : 'border-slate-200 hover:border-orange-400';
+                const btnClass = v.popular ? 'bg-orange-600 hover:bg-orange-700 text-white' : 'bg-slate-900 hover:bg-orange-600 text-white';
                 
                 const featuresHTML = (v.features || ['Experienced Driver', 'Clean & Sanitized', '24/7 Support']).map(f => 
-                    `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> ${f}</li>`
+                    `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-600"></i> ${f}</li>`
                 ).join('');
 
                 container.innerHTML += `
-                    <div class="bg-slate-900 rounded-3xl p-6 border ${borderClass} shadow-xl flex flex-col justify-between transition">
+                    <div class="bg-white rounded-3xl p-6 border ${borderClass} shadow-md flex flex-col justify-between transition">
                         ${badgeHTML}
                         <div>
-                            <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/20">${v.category}</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">${v.name}</h3>
-                            <p class="text-xs text-slate-400 mb-6">${v.desc || 'Comfortable & reliable vehicle for J&K and Ladakh tours.'}</p>
-                            <div class="text-3xl font-extrabold text-emerald-400 mb-4">₹${Number(v.rate).toLocaleString()} <span class="text-xs text-slate-400 font-normal">/ day</span></div>
-                            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+                            <span class="bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1 rounded-full border border-orange-200">${v.category}</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-4 mb-2">${v.name}</h3>
+                            <p class="text-xs text-slate-500 mb-6">${v.desc || 'Comfortable & reliable vehicle for J&K and Ladakh tours.'}</p>
+                            <div class="text-3xl font-extrabold text-orange-600 mb-4">₹${Number(v.rate).toLocaleString()} <span class="text-xs text-slate-500 font-normal">/ day</span></div>
+                            <ul class="space-y-2.5 text-sm text-slate-700 mb-6">
                                 ${featuresHTML}
                             </ul>
                         </div>
-                        <button onclick="selectVehicleById('${v.id}')" class="w-full ${btnClass} text-white font-semibold py-3 rounded-xl transition text-sm">Select Vehicle</button>
+                        <button onclick="selectVehicleById('${v.id}')" class="w-full ${btnClass} font-bold py-3 rounded-xl transition text-sm">Select Vehicle</button>
                     </div>
                 `;
 
@@ -694,52 +602,96 @@
             });
         }
 
+        function getBadgeStyle(color) {
+            if(color === 'blue') return 'bg-blue-100 text-blue-700';
+            if(color === 'purple') return 'bg-purple-100 text-purple-700';
+            if(color === 'rose') return 'bg-rose-100 text-rose-700';
+            if(color === 'emerald') return 'bg-emerald-100 text-emerald-700';
+            return 'bg-orange-100 text-orange-700';
+        }
+
+        function renderPackagesUI() {
+            const container = document.getElementById('packagesCardsContainer');
+            const tripSelect = document.getElementById('tripType');
+            const currentSelected = tripSelect.value;
+
+            container.innerHTML = '';
+            tripSelect.innerHTML = '<option value="custom" data-days="1">Custom Rental (Per Day)</option>';
+
+            tourPackages.forEach(pkg => {
+                const badgeStyle = getBadgeStyle(pkg.badgeColor);
+                container.innerHTML += `
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-orange-500 transition">
+                        <div>
+                            <div class="flex justify-between items-start mb-4 gap-2">
+                                <span class="${badgeStyle} text-xs font-bold px-3 py-1 rounded-full">${pkg.badge}</span>
+                                <span class="text-orange-600 font-extrabold whitespace-nowrap">From ₹${Number(pkg.price).toLocaleString()}</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">${pkg.title}</h3>
+                            <p class="text-xs text-slate-600 mb-4">${pkg.desc}</p>
+                        </div>
+                        <button onclick="selectPackage('${pkg.id}', ${pkg.days})" class="w-full bg-orange-50 hover:bg-orange-600 text-orange-700 hover:text-white font-bold py-2.5 rounded-xl border border-orange-200 transition text-sm">Book Package</button>
+                    </div>
+                `;
+
+                const option = document.createElement('option');
+                option.value = pkg.id;
+                option.dataset.days = pkg.days;
+                option.dataset.title = pkg.title;
+                option.text = `${pkg.title} (${pkg.days} ${pkg.days > 1 ? 'Days' : 'Day'})`;
+                tripSelect.appendChild(option);
+            });
+
+            if (currentSelected && Array.from(tripSelect.options).some(o => o.value === currentSelected)) {
+                tripSelect.value = currentSelected;
+            }
+        }
+
         function renderReviewsUI() {
             const grid = document.getElementById('reviewsGrid');
-            // Default static reviews + dynamic user submitted reviews
             let defaultReviewsHTML = `
-                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="flex text-amber-400 text-sm mb-3">
+                        <div class="flex text-amber-500 text-sm mb-3">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-slate-300 text-sm italic mb-4">"Booked an Innova from Jammu to Srinagar and Gulmarg for 7 days. Driver was extremely polite, expert in mountain driving, and car was very clean. Highly recommended!"</p>
+                        <p class="text-slate-600 text-sm italic mb-4">"Booked an Innova from Jammu to Srinagar and Gulmarg for 7 days. Driver was extremely polite, expert in mountain driving, and car was very clean. Highly recommended!"</p>
                     </div>
-                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                        <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">AS</div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-700 font-bold flex items-center justify-center">AS</div>
                         <div>
-                            <div class="text-sm font-bold text-white">Amit Saxena</div>
-                            <div class="text-xs text-slate-400">Delhi to Srinagar Tourist</div>
+                            <div class="text-sm font-bold text-slate-900">Amit Saxena</div>
+                            <div class="text-xs text-slate-500">Delhi to Srinagar Tourist</div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="flex text-amber-400 text-sm mb-3">
+                        <div class="flex text-amber-500 text-sm mb-3">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-slate-300 text-sm italic mb-4">"Very smooth online booking with instant WhatsApp confirmation slip. Took 5 Seater Dzire for Patnitop day trip!"</p>
+                        <p class="text-slate-600 text-sm italic mb-4">"Very smooth online booking with instant WhatsApp confirmation slip. Took 5 Seater Dzire for Patnitop day trip!"</p>
                     </div>
-                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                        <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">PK</div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-700 font-bold flex items-center justify-center">PK</div>
                         <div>
-                            <div class="text-sm font-bold text-white">Pooja Kapoor</div>
-                            <div class="text-xs text-slate-400">Chandigarh to Patnitop</div>
+                            <div class="text-sm font-bold text-slate-900">Pooja Kapoor</div>
+                            <div class="text-xs text-slate-500">Chandigarh to Patnitop</div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="flex text-amber-400 text-sm mb-3">
+                        <div class="flex text-amber-500 text-sm mb-3">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-slate-300 text-sm italic mb-4">"Amazing service! Booked a 13-Seater Traveller for Katra & Reasi Chenab Bridge tour. Deep Travels owner coordinated everything perfectly."</p>
+                        <p class="text-slate-600 text-sm italic mb-4">"Amazing service! Booked a 13-Seater Traveller for Katra & Reasi Chenab Bridge tour. Deep Travels owner coordinated everything perfectly."</p>
                     </div>
-                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                        <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">MK</div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-700 font-bold flex items-center justify-center">MK</div>
                         <div>
-                            <div class="text-sm font-bold text-white">Manish Kumar</div>
-                            <div class="text-xs text-slate-400">Jammu Local & Katra</div>
+                            <div class="text-sm font-bold text-slate-900">Manish Kumar</div>
+                            <div class="text-xs text-slate-500">Jammu Local & Katra</div>
                         </div>
                     </div>
                 </div>
@@ -750,16 +702,16 @@
                 for(let i=0; i<r.rating; i++) stars += '<i class="fa-solid fa-star"></i>';
                 let initials = r.name.split(' ').map(n => n[0]).join('').toUpperCase();
                 return `
-                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
                         <div>
-                            <div class="flex text-amber-400 text-sm mb-3">${stars}</div>
-                            <p class="text-slate-300 text-sm italic mb-4">"${r.text}"</p>
+                            <div class="flex text-amber-500 text-sm mb-3">${stars}</div>
+                            <p class="text-slate-600 text-sm italic mb-4">"${r.text}"</p>
                         </div>
-                        <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                            <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 font-bold flex items-center justify-center">${initials}</div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-700 font-bold flex items-center justify-center">${initials}</div>
                             <div>
-                                <div class="text-sm font-bold text-white">${r.name}</div>
-                                <div class="text-xs text-slate-400">${r.location}</div>
+                                <div class="text-sm font-bold text-slate-900">${r.name}</div>
+                                <div class="text-xs text-slate-500">${r.location}</div>
                             </div>
                         </div>
                     </div>
@@ -813,12 +765,12 @@
         }
 
         function onTripTypeChange() {
-            const tripType = document.getElementById('tripType').value;
+            const tripSelect = document.getElementById('tripType');
+            const selectedOpt = tripSelect.options[tripSelect.selectedIndex];
             const daysInput = document.getElementById('numDays');
-            if (tripType === 'patnitop' || tripType === 'reasi' || tripType === 'mansar') daysInput.value = 1;
-            if (tripType === 'amritsar') daysInput.value = 2;
-            if (tripType === 'srinagar') daysInput.value = 7;
-            if (tripType === 'ladakh') daysInput.value = 9;
+            if (selectedOpt && selectedOpt.dataset.days) {
+                daysInput.value = selectedOpt.dataset.days;
+            }
             calculateFare();
         }
 
@@ -885,7 +837,10 @@
             const vehicleText = selectedOption.dataset.name;
             const vehicleRate = parseInt(selectedOption.dataset.rate);
 
-            const tripType = document.getElementById('tripType').value;
+            const tripSelect = document.getElementById('tripType');
+            const tripOpt = tripSelect.options[tripSelect.selectedIndex];
+            const tripType = tripOpt && tripOpt.dataset.title ? tripOpt.dataset.title : tripSelect.value;
+
             const days = parseInt(document.getElementById('numDays').value) || 1;
             const pickupDate = document.getElementById('pickupDate').value;
             const pickupLoc = document.getElementById('pickupLoc').value;
@@ -897,7 +852,6 @@
             let total = Math.max(0, baseAmount - discount);
             let paidNow = payMode === 'advance' ? Math.round(total * 0.20) : total;
 
-            // Real Razorpay Key ID integration (Replace with your actual key ID when ready)
             const razorpayKey = "rzp_test_YOUR_KEY_HERE"; 
 
             if(razorpayKey && razorpayKey !== "rzp_test_YOUR_KEY_HERE" && typeof Razorpay !== 'undefined') {
@@ -911,7 +865,7 @@
                         completeBookingFinal(name, phone, email, vehicleText, tripType, days, pickupDate, pickupLoc, payMode, total, paidNow, response.razorpay_payment_id);
                     },
                     "prefill": { "name": name, "email": email, "contact": phone },
-                    "theme": { "color": "#059669" }
+                    "theme": { "color": "#ea580c" }
                 };
                 var rzp1 = new Razorpay(options);
                 rzp1.on('payment.failed', function (response){
@@ -919,8 +873,9 @@
                 });
                 rzp1.open();
             } else {
-                // If live key is not yet configured, provide seamless test checkout prompt
-                if(confirm(`Razorpay Test Mode: Pay ₹${paidNow.toLocaleString()}\n\nClick OK to simulate successful payment and confirm your booking.`)) {
+                if(confirm(`Razorpay Test Mode: Pay ₹${paidNow.toLocaleString()}
+
+Click OK to simulate successful payment and confirm your booking.`)) {
                     const mockTxnId = 'TXN-RZP-' + Math.floor(100000 + Math.random() * 900000);
                     completeBookingFinal(name, phone, email, vehicleText, tripType, days, pickupDate, pickupLoc, payMode, total, paidNow, mockTxnId);
                 }
@@ -959,7 +914,9 @@
             searchBooking();
             scrollToSection('tracker');
 
-            if(confirm(`Payment Successful! Booking ID: ${bookingId}\n\nClick OK to send your booking slip to Deep Travels WhatsApp.`)) {
+            if(confirm(`Payment Successful! Booking ID: ${bookingId}
+
+Click OK to send your booking slip to Deep Travels WhatsApp.`)) {
                 sendWhatsAppReceipt(bookingId);
             }
         }
@@ -968,47 +925,47 @@
             const query = document.getElementById('searchBookingInput').value.trim().toLowerCase();
             const resultArea = document.getElementById('bookingResultArea');
             if(!query) {
-                resultArea.innerHTML = '<div class="text-center py-6 text-slate-400 text-sm">Please enter a Booking ID or Phone Number.</div>';
+                resultArea.innerHTML = '<div class="text-center py-6 text-slate-500 text-sm">Please enter a Booking ID or Phone Number.</div>';
                 return;
             }
 
             const found = bookings.find(b => b.bookingId.toLowerCase().includes(query) || b.phone.includes(query));
             if(!found) {
-                resultArea.innerHTML = '<div class="text-center py-6 text-rose-400 text-sm">No booking found with this ID or phone number.</div>';
+                resultArea.innerHTML = '<div class="text-center py-6 text-rose-600 font-semibold text-sm">No booking found with this ID or phone number.</div>';
                 return;
             }
 
             resultArea.innerHTML = `
-                <div class="bg-slate-950 border border-emerald-500/40 rounded-2xl p-6 space-y-4">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pb-4 border-b border-slate-800">
+                <div class="bg-orange-50/60 border border-orange-200 rounded-2xl p-6 space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pb-4 border-b border-orange-200">
                         <div>
-                            <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full">ID: ${found.bookingId}</span>
-                            <h3 class="text-xl font-bold text-white mt-2">${found.name}</h3>
+                            <span class="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full">ID: ${found.bookingId}</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-2">${found.name}</h3>
                         </div>
                         <span class="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">${found.status}</span>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-300">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-700">
                         <div><strong>Phone:</strong> ${found.phone}</div>
                         <div><strong>Email:</strong> ${found.email}</div>
                         <div><strong>Vehicle:</strong> ${found.vehicleText}</div>
-                        <div><strong>Route / Trip:</strong> ${found.tripType.toUpperCase()} (${found.days} Days)</div>
+                        <div><strong>Route / Trip:</strong> ${found.tripType} (${found.days} Days)</div>
                         <div><strong>Pickup Date:</strong> ${found.pickupDate}</div>
                         <div><strong>Pickup Location:</strong> ${found.pickupLoc}</div>
-                        <div><strong>Paid Online:</strong> <span class="text-emerald-400 font-bold">₹${found.paidNow.toLocaleString()}</span> ${found.paymentId ? `(Txn: ${found.paymentId})` : ''}</div>
-                        <div><strong>Balance Due to Driver:</strong> <span class="text-amber-400 font-bold">₹${found.balanceDue.toLocaleString()}</span></div>
+                        <div><strong>Paid Online:</strong> <span class="text-emerald-700 font-bold">₹${found.paidNow.toLocaleString()}</span> ${found.paymentId ? `(Txn: ${found.paymentId})` : ''}</div>
+                        <div><strong>Balance Due to Driver:</strong> <span class="text-orange-600 font-bold">₹${found.balanceDue.toLocaleString()}</span></div>
                         <div><strong>Assigned Driver:</strong> ${found.driverName}</div>
                         <div><strong>Assigned Cab No:</strong> ${found.cabNumber}</div>
                     </div>
 
-                    <div class="flex flex-wrap gap-3 pt-4 border-t border-slate-800">
-                        <button onclick="downloadInvoice('${found.bookingId}')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
+                    <div class="flex flex-wrap gap-3 pt-4 border-t border-orange-200">
+                        <button onclick="downloadInvoice('${found.bookingId}')" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
                             <i class="fa-solid fa-file-pdf"></i> Download PDF Invoice
                         </button>
-                        <button onclick="sendWhatsAppReceipt('${found.bookingId}')" class="bg-emerald-700 hover:bg-emerald-600 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
+                        <button onclick="sendWhatsAppReceipt('${found.bookingId}')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
                             <i class="fa-brands fa-whatsapp"></i> Send WhatsApp Receipt
                         </button>
-                        <button onclick="sendEmailReceipt('${found.bookingId}')" class="bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold px-4 py-2.5 rounded-xl text-xs border border-slate-700 flex items-center gap-2">
+                        <button onclick="sendEmailReceipt('${found.bookingId}')" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
                             <i class="fa-solid fa-envelope"></i> Send to Email (${found.email})
                         </button>
                     </div>
@@ -1026,13 +983,13 @@
                     <title>Invoice - Deep Travels (${b.bookingId})</title>
                     <style>
                         body { font-family: Arial, sans-serif; padding: 40px; color: #111; }
-                        .header { display: flex; justify-content: space-between; border-bottom: 2px solid #059669; padding-bottom: 20px; margin-bottom: 20px; }
-                        .logo { font-size: 24px; font-weight: bold; color: #059669; }
+                        .header { display: flex; justify-content: space-between; border-bottom: 2px solid #ea580c; padding-bottom: 20px; margin-bottom: 20px; }
+                        .logo { font-size: 24px; font-weight: bold; color: #ea580c; }
                         .details { margin-bottom: 30px; }
                         table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
                         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 14px; }
-                        th { background-color: #f3f4f6; }
-                        .total { text-align: right; font-size: 18px; font-weight: bold; color: #059669; }
+                        th { background-color: #fff7ed; }
+                        .total { text-align: right; font-size: 18px; font-weight: bold; color: #ea580c; }
                     </style>
                 </head>
                 <body>
@@ -1063,7 +1020,7 @@
                             <th>Amount</th>
                         </tr>
                         <tr>
-                            <td>Tour Service (${b.tripType.toUpperCase()})</td>
+                            <td>Tour Service (${b.tripType})</td>
                             <td>${b.vehicleText}</td>
                             <td>${b.days} Days</td>
                             <td>₹${b.total.toLocaleString()}</td>
@@ -1086,17 +1043,30 @@
         function sendWhatsAppReceipt(id) {
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
-            const rawMessage = `*DEEP TRAVELS - PAID BOOKING*\n\n` +
-                               `Booking ID: *${b.bookingId}*\n` +
-                               `Guest Name: ${b.name}\n` +
-                               `Guest Phone: ${b.phone}\n` +
-                               `Email: ${b.email}\n` +
-                               `Route/Package: ${b.tripType.toUpperCase()} (${b.days} Days)\n` +
-                               `Vehicle: ${b.vehicleText}\n` +
-                               `Pickup: ${b.pickupLoc} on ${b.pickupDate}\n` +
-                               `Total Fare: ₹${b.total.toLocaleString()}\n` +
-                               `Paid Online (Razorpay): ₹${b.paidNow.toLocaleString()}\n` +
-                               `Balance Due: ₹${b.balanceDue.toLocaleString()}\n\n` +
+            const rawMessage = `*DEEP TRAVELS - PAID BOOKING*
+
+` +
+                               `Booking ID: *${b.bookingId}*
+` +
+                               `Guest Name: ${b.name}
+` +
+                               `Guest Phone: ${b.phone}
+` +
+                               `Email: ${b.email}
+` +
+                               `Route/Package: ${b.tripType} (${b.days} Days)
+` +
+                               `Vehicle: ${b.vehicleText}
+` +
+                               `Pickup: ${b.pickupLoc} on ${b.pickupDate}
+` +
+                               `Total Fare: ₹${b.total.toLocaleString()}
+` +
+                               `Paid Online (Razorpay): ₹${b.paidNow.toLocaleString()}
+` +
+                               `Balance Due: ₹${b.balanceDue.toLocaleString()}
+
+` +
                                `Please assign driver and cab.`;
 
             const encodedText = encodeURIComponent(rawMessage);
@@ -1107,7 +1077,19 @@
             const b = bookings.find(x => x.bookingId === id);
             if(!b) return;
             const subject = encodeURIComponent(`Deep Travels Booking Receipt - ${b.bookingId}`);
-            const body = encodeURIComponent(`Hello ${b.name},\n\nYour payment and booking with Deep Travels is confirmed!\n\nBooking ID: ${b.bookingId}\nVehicle: ${b.vehicleText}\nPickup: ${b.pickupLoc} (${b.pickupDate})\nTotal Fare: ₹${b.total}\nPaid Online: ₹${b.paidNow}\nBalance Due: ₹${b.balanceDue}\n\nThank you,\nDeep Travels Team (gaggig687@gmail.com)`);
+            const body = encodeURIComponent(`Hello ${b.name},
+
+Your payment and booking with Deep Travels is confirmed!
+
+Booking ID: ${b.bookingId}
+Vehicle: ${b.vehicleText}
+Pickup: ${b.pickupLoc} (${b.pickupDate})
+Total Fare: ₹${b.total}
+Paid Online: ₹${b.paidNow}
+Balance Due: ₹${b.balanceDue}
+
+Thank you,
+Deep Travels Team (gaggig687@gmail.com)`);
             window.location.href = `mailto:${b.email}?subject=${subject}&body=${body}`;
         }
 
@@ -1127,6 +1109,7 @@
         function openAdminPanel() {
             document.getElementById('adminPanelModal').classList.remove('hidden');
             renderAdminFleet();
+            renderAdminPackages();
             loadAdminBookings();
             updatePhoneDisplays();
         }
@@ -1135,21 +1118,22 @@
             document.getElementById('adminPanelModal').classList.add('hidden');
         }
 
+        // --- ADMIN FLEET MANAGEMENT ---
         function renderAdminFleet() {
             const list = document.getElementById('adminFleetList');
             list.innerHTML = '';
             vehicles.forEach((v, idx) => {
                 list.innerHTML += `
-                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div class="bg-white border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 shadow-sm">
                         <div class="flex-1 w-full">
-                            <div class="text-[10px] uppercase tracking-wider text-emerald-400 font-bold">${v.category}</div>
-                            <input type="text" id="edit_vname_${idx}" value="${v.name}" class="bg-slate-950 border border-slate-800 rounded px-2 py-1 text-sm font-bold text-white w-full mt-1">
+                            <div class="text-[10px] uppercase tracking-wider text-orange-600 font-bold">${v.category}</div>
+                            <input type="text" id="edit_vname_${idx}" value="${v.name}" class="bg-slate-50 border border-slate-300 rounded px-2 py-1 text-sm font-bold text-slate-900 w-full mt-1">
                         </div>
                         <div class="flex items-center gap-2 w-full sm:w-auto">
-                            <span class="text-xs text-slate-400">₹</span>
-                            <input type="number" id="edit_vrate_${idx}" value="${v.rate}" class="bg-slate-950 border border-slate-800 rounded px-2 py-1 text-sm font-bold text-emerald-400 w-24">
-                            <button onclick="updateVehicle(${idx})" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold">Save</button>
-                            ${vehicles.length > 1 ? `<button onclick="deleteVehicle(${idx})" class="bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white px-2.5 py-1.5 rounded-lg text-xs" title="Remove Vehicle"><i class="fa-solid fa-trash"></i></button>` : ''}
+                            <span class="text-xs text-slate-500">₹</span>
+                            <input type="number" id="edit_vrate_${idx}" value="${v.rate}" class="bg-slate-50 border border-slate-300 rounded px-2 py-1 text-sm font-bold text-orange-600 w-24">
+                            <button onclick="updateVehicle(${idx})" class="bg-orange-600 hover:bg-orange-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold">Save</button>
+                            ${vehicles.length > 1 ? `<button onclick="deleteVehicle(${idx})" class="bg-rose-50 hover:bg-rose-600 text-rose-600 hover:text-white px-2.5 py-1.5 rounded-lg text-xs" title="Remove Vehicle"><i class="fa-solid fa-trash"></i></button>` : ''}
                         </div>
                     </div>
                 `;
@@ -1212,6 +1196,106 @@
             }
         }
 
+        // --- ADMIN TOUR PACKAGES MANAGEMENT ---
+        function renderAdminPackages() {
+            const list = document.getElementById('adminPackagesList');
+            list.innerHTML = '';
+            tourPackages.forEach((pkg, idx) => {
+                list.innerHTML += `
+                    <div class="bg-white border border-slate-200 rounded-xl p-4 space-y-2.5 shadow-sm">
+                        <div class="flex items-center justify-between gap-2">
+                            <input type="text" id="edit_pkg_title_${idx}" value="${pkg.title}" placeholder="Package Title" class="bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 text-sm font-bold text-slate-900 flex-1">
+                            <button onclick="deletePackage(${idx})" class="bg-rose-50 hover:bg-rose-600 text-rose-600 hover:text-white px-2.5 py-1.5 rounded-lg text-xs" title="Delete Package"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <label class="block text-[10px] text-slate-500 font-semibold">Tag / Label</label>
+                                <input type="text" id="edit_pkg_badge_${idx}" value="${pkg.badge}" class="bg-slate-50 border border-slate-300 rounded px-2 py-1 text-xs text-slate-800 w-full">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-slate-500 font-semibold">Days</label>
+                                <input type="number" id="edit_pkg_days_${idx}" min="1" max="30" value="${pkg.days}" class="bg-slate-50 border border-slate-300 rounded px-2 py-1 text-xs text-slate-900 w-full">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-slate-500 font-semibold">Starting ₹</label>
+                                <input type="number" id="edit_pkg_price_${idx}" value="${pkg.price}" class="bg-slate-50 border border-slate-300 rounded px-2 py-1 text-xs text-orange-600 font-bold w-full">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input type="text" id="edit_pkg_desc_${idx}" value="${pkg.desc}" placeholder="Description" class="bg-slate-50 border border-slate-300 rounded px-2.5 py-1 text-xs text-slate-700 flex-1">
+                            <button onclick="updatePackage(${idx})" class="bg-orange-600 hover:bg-orange-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold">Save</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function updatePackage(idx) {
+            const title = document.getElementById(`edit_pkg_title_${idx}`).value.trim();
+            const badge = document.getElementById(`edit_pkg_badge_${idx}`).value.trim() || 'Tour Package';
+            const days = parseInt(document.getElementById(`edit_pkg_days_${idx}`).value) || 1;
+            const price = parseInt(document.getElementById(`edit_pkg_price_${idx}`).value);
+            const desc = document.getElementById(`edit_pkg_desc_${idx}`).value.trim();
+
+            if(!title || isNaN(price) || price <= 0) {
+                alert('Please enter a valid Package Title and Starting Price.');
+                return;
+            }
+
+            tourPackages[idx].title = title;
+            tourPackages[idx].badge = badge;
+            tourPackages[idx].days = days;
+            tourPackages[idx].price = price;
+            tourPackages[idx].desc = desc;
+
+            localStorage.setItem('deep_travels_packages', JSON.stringify(tourPackages));
+            renderPackagesUI();
+            alert('Tour Package updated successfully!');
+        }
+
+        function addNewPackage() {
+            const title = document.getElementById('newPkgTitle').value.trim();
+            const badge = document.getElementById('newPkgBadge').value.trim() || 'Custom Tour';
+            const days = parseInt(document.getElementById('newPkgDays').value) || 1;
+            const price = parseInt(document.getElementById('newPkgPrice').value);
+            const desc = document.getElementById('newPkgDesc').value.trim() || 'Comfortable cab tour with experienced local mountain driver.';
+
+            if(!title || isNaN(price) || price <= 0) {
+                alert('Please enter Package Title and Starting Price.');
+                return;
+            }
+
+            tourPackages.push({
+                id: 'pkg_' + Date.now(),
+                title: title,
+                badge: badge,
+                badgeColor: days >= 5 ? 'purple' : (days >= 2 ? 'blue' : 'emerald'),
+                days: days,
+                price: price,
+                desc: desc
+            });
+
+            localStorage.setItem('deep_travels_packages', JSON.stringify(tourPackages));
+            document.getElementById('newPkgTitle').value = '';
+            document.getElementById('newPkgBadge').value = '';
+            document.getElementById('newPkgDays').value = '';
+            document.getElementById('newPkgPrice').value = '';
+            document.getElementById('newPkgDesc').value = '';
+
+            renderAdminPackages();
+            renderPackagesUI();
+            alert(`"${title}" package added successfully!`);
+        }
+
+        function deletePackage(idx) {
+            if(confirm(`Are you sure you want to delete the package "${tourPackages[idx].title}"?`)) {
+                tourPackages.splice(idx, 1);
+                localStorage.setItem('deep_travels_packages', JSON.stringify(tourPackages));
+                renderAdminPackages();
+                renderPackagesUI();
+            }
+        }
+
         function saveAgencyWhatsApp() {
             const num = document.getElementById('agencyWhatsAppInput').value.trim().replace(/[^0-9]/g, '');
             if(!num || num.length < 10) {
@@ -1231,7 +1315,7 @@
             let balanceColl = 0;
 
             if(bookings.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-500">No bookings recorded yet.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">No bookings recorded yet.</td></tr>`;
                 document.getElementById('adminTotalBookings').innerText = '0';
                 document.getElementById('adminGrossRev').innerText = '₹0';
                 document.getElementById('adminAdvanceColl').innerText = '₹0';
@@ -1246,32 +1330,32 @@
                 balanceColl += b.balanceDue;
 
                 tbody.innerHTML += `
-                    <tr class="hover:bg-slate-800/50">
+                    <tr class="hover:bg-slate-50">
                         <td class="p-3">
-                            <div class="font-bold text-white">${b.bookingId}</div>
+                            <div class="font-bold text-slate-900">${b.bookingId}</div>
                             <div class="text-xs text-slate-500">${b.createdAt}</div>
                         </td>
                         <td class="p-3">
-                            <div class="font-bold text-white">${b.name}</div>
-                            <div class="text-xs text-slate-400">${b.phone}</div>
+                            <div class="font-bold text-slate-900">${b.name}</div>
+                            <div class="text-xs text-slate-500">${b.phone}</div>
                         </td>
                         <td class="p-3">
-                            <div class="font-medium text-emerald-400">${b.tripType.toUpperCase()}</div>
-                            <div class="text-xs text-slate-400">${b.vehicleText}</div>
+                            <div class="font-semibold text-orange-600">${b.tripType}</div>
+                            <div class="text-xs text-slate-500">${b.vehicleText}</div>
                         </td>
                         <td class="p-3">
-                            <div class="font-bold text-white">₹${b.total.toLocaleString()}</div>
-                            <div class="text-xs text-amber-400">Due: ₹${b.balanceDue.toLocaleString()}</div>
+                            <div class="font-bold text-slate-900">₹${b.total.toLocaleString()}</div>
+                            <div class="text-xs text-amber-600 font-semibold">Due: ₹${b.balanceDue.toLocaleString()}</div>
                         </td>
                         <td class="p-3">
-                            <input type="text" id="driver_${idx}" value="${b.driverName}" placeholder="Driver Name" class="bg-slate-950 border border-slate-800 rounded px-2 py-1 text-xs text-white mb-1 w-full">
-                            <input type="text" id="cab_${idx}" value="${b.cabNumber}" placeholder="Cab No (e.g. JK02AB1234)" class="bg-slate-950 border border-slate-800 rounded px-2 py-1 text-xs text-white w-full">
-                            <button onclick="saveDriver(${idx})" class="mt-1 bg-emerald-600 text-white px-2 py-0.5 rounded text-[10px] font-bold">Save</button>
+                            <input type="text" id="driver_${idx}" value="${b.driverName}" placeholder="Driver Name" class="bg-slate-50 border border-slate-300 rounded px-2 py-1 text-xs text-slate-900 mb-1 w-full">
+                            <input type="text" id="cab_${idx}" value="${b.cabNumber}" placeholder="Cab No (e.g. JK02AB1234)" class="bg-slate-50 border border-slate-300 rounded px-2 py-1 text-xs text-slate-900 w-full">
+                            <button onclick="saveDriver(${idx})" class="mt-1 bg-orange-600 text-white px-2 py-0.5 rounded text-[10px] font-bold">Save</button>
                         </td>
                         <td class="p-3 space-x-1">
-                            <button onclick="adminSendWhatsApp(${idx}, 'guest')" class="bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white px-2 py-1 rounded text-xs" title="Send Slip to Guest"><i class="fa-brands fa-whatsapp"></i></button>
-                            <button onclick="adminSendWhatsApp(${idx}, 'driver')" class="bg-blue-600/20 text-blue-400 hover:bg-blue-600 hover:text-white px-2 py-1 rounded text-xs" title="Send Duty to Driver"><i class="fa-solid fa-car"></i></button>
-                            <button onclick="adminSendReminder(${idx})" class="bg-purple-600/20 text-purple-400 hover:bg-purple-600 hover:text-white px-2 py-1 rounded text-xs" title="Send Reminder"><i class="fa-solid fa-bell"></i></button>
+                            <button onclick="adminSendWhatsApp(${idx}, 'guest')" class="bg-emerald-100 text-emerald-700 hover:bg-emerald-600 hover:text-white px-2 py-1 rounded text-xs" title="Send Slip to Guest"><i class="fa-brands fa-whatsapp"></i></button>
+                            <button onclick="adminSendWhatsApp(${idx}, 'driver')" class="bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white px-2 py-1 rounded text-xs" title="Send Duty to Driver"><i class="fa-solid fa-car"></i></button>
+                            <button onclick="adminSendReminder(${idx})" class="bg-purple-100 text-purple-700 hover:bg-purple-600 hover:text-white px-2 py-1 rounded text-xs" title="Send Reminder"><i class="fa-solid fa-bell"></i></button>
                         </td>
                     </tr>
                 `;
@@ -1297,10 +1381,20 @@
             const b = bookings[idx];
             if(type === 'guest') {
                 const guestPhone = b.phone.replace(/[^0-9]/g, '');
-                const msg = encodeURIComponent(`*DEEP TRAVELS - BOOKING CONFIRMED*\nBooking ID: ${b.bookingId}\nDriver: ${b.driverName}\nCab No: ${b.cabNumber}\nPickup: ${b.pickupLoc} on ${b.pickupDate}\nBalance Due: ₹${b.balanceDue}`);
+                const msg = encodeURIComponent(`*DEEP TRAVELS - BOOKING CONFIRMED*
+Booking ID: ${b.bookingId}
+Driver: ${b.driverName}
+Cab No: ${b.cabNumber}
+Pickup: ${b.pickupLoc} on ${b.pickupDate}
+Balance Due: ₹${b.balanceDue}`);
                 window.location.href = `https://api.whatsapp.com/send?phone=${guestPhone}&text=${msg}`;
             } else {
-                const msg = encodeURIComponent(`*DRIVER DUTY SLIP - DEEP TRAVELS*\nBooking ID: ${b.bookingId}\nGuest: ${b.name} (${b.phone})\nPickup: ${b.pickupLoc} on ${b.pickupDate}\nRoute: ${b.tripType.toUpperCase()} (${b.days} Days)\nCollect Balance: ₹${b.balanceDue}`);
+                const msg = encodeURIComponent(`*DRIVER DUTY SLIP - DEEP TRAVELS*
+Booking ID: ${b.bookingId}
+Guest: ${b.name} (${b.phone})
+Pickup: ${b.pickupLoc} on ${b.pickupDate}
+Route: ${b.tripType} (${b.days} Days)
+Collect Balance: ₹${b.balanceDue}`);
                 window.location.href = `https://api.whatsapp.com/send?text=${msg}`;
             }
         }
@@ -1308,7 +1402,10 @@
         function adminSendReminder(idx) {
             const b = bookings[idx];
             const guestPhone = b.phone.replace(/[^0-9]/g, '');
-            const msg = encodeURIComponent(`*TRIP REMINDER - DEEP TRAVELS*\nHello ${b.name}, your trip (${b.bookingId}) is scheduled for tomorrow (${b.pickupDate}) from ${b.pickupLoc}.\nDriver: ${b.driverName} (${b.cabNumber}).\nHave a safe journey!`);
+            const msg = encodeURIComponent(`*TRIP REMINDER - DEEP TRAVELS*
+Hello ${b.name}, your trip (${b.bookingId}) is scheduled for tomorrow (${b.pickupDate}) from ${b.pickupLoc}.
+Driver: ${b.driverName} (${b.cabNumber}).
+Have a safe journey!`);
             window.location.href = `https://api.whatsapp.com/send?phone=${guestPhone}&text=${msg}`;
         }
 
